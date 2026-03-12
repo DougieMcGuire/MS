@@ -1,1 +1,210 @@
-<img src="https://preview.redd.it/serious-question-where-did-this-pic-come-from-ive-seen-it-v0-cdgeb21q8gmd1.jpeg?width=640&crop=smart&auto=webp&s=144e88c8a6b44f815ba1d233b111d9aa8e4ef85e">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M&S Lawncare</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#f2f2f2;
+}
+
+/* NAVBAR */
+
+nav{
+background:#2c2c2c;
+color:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 10%;
+}
+
+.logo{
+color:#7dbd3b;
+font-size:26px;
+font-weight:bold;
+}
+
+nav ul{
+list-style:none;
+display:flex;
+gap:30px;
+}
+
+nav ul li{
+cursor:pointer;
+}
+
+nav ul li:hover{
+color:#7dbd3b;
+}
+
+/* HERO SECTION */
+
+.hero{
+height:500px;
+background-image:url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6");
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+padding:20px;
+}
+
+.hero-content{
+background:rgba(0,0,0,0.4);
+padding:40px;
+border-radius:10px;
+}
+
+.hero h1{
+font-size:40px;
+margin-bottom:15px;
+}
+
+.hero p{
+max-width:700px;
+margin:auto;
+margin-bottom:20px;
+}
+
+.btn{
+background:#6bb52d;
+color:white;
+padding:12px 25px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+font-size:16px;
+}
+
+.btn:hover{
+background:#5aa326;
+}
+
+/* GRID SECTION */
+
+.section{
+padding:60px 10%;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:6px;
+}
+
+.card h2{
+color:#6bb52d;
+margin-bottom:15px;
+}
+
+.image-card img{
+width:100%;
+border-radius:6px;
+}
+
+@media(max-width:900px){
+.grid{
+grid-template-columns:1fr;
+}
+.hero h1{
+font-size:30px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">M&SLawncare.com</div>
+
+<ul>
+<li>HOME</li>
+<li>OUR SERVICES</li>
+<li>OUR WORK</li>
+<li>ABOUT US</li>
+<li>TESTIMONIALS</li>
+<li>BOOKING & QUOTES</li>
+</ul>
+</nav>
+
+
+<section class="hero">
+
+<div class="hero-content">
+<h1>Your lawn, our passion</h1>
+
+<p>
+Welcome to M&SLawncare.com, your trusted partner for exceptional lawncare
+and landscaping services in Algona, Iowa. We’re dedicated to transforming
+outdoor spaces into beautiful thriving environments.
+</p>
+
+<button class="btn">Book a service</button>
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="grid">
+
+<div class="card">
+<h2>About M&SLawncare.com</h2>
+
+<p>
+M&S Lawncare is a dedicated team committed to crafting exceptional outdoor
+experiences. Our focus lies in providing reliable and innovative lawncare
+and landscaping solutions, driven by a deep respect for quality and a
+genuine desire to exceed expectations.
+</p>
+</div>
+
+<div class="image-card">
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+</div>
+
+<div class="image-card">
+<img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b">
+</div>
+
+<div class="card">
+<h2>Our commitment to excellence</h2>
+
+<p>
+From humble beginnings, we've grown through unwavering dedication and a
+commitment to continuous improvement in every lawn we care for. Each step
+has reinforced our belief in quality service and strong customer
+relationships.
+</p>
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>
