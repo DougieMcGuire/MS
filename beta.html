@@ -393,7 +393,7 @@
           <span data-star="1">☆</span><span data-star="2">☆</span><span data-star="3">☆</span><span data-star="4">☆</span><span data-star="5">☆</span>
         </div>
         <textarea id="review-text" placeholder="How did Matt do?" style="padding:.8rem 1rem;border:2px solid var(--tan);border-radius:4px;font-family:'Lato',sans-serif;font-size:.95rem;min-height:90px;resize:vertical;outline:none;"></textarea>
-        <button onclick="submitReview()" class="btn btn-primary" style="align-self:flex-start;">Post Review →</button>
+        <button id="submit-review-btn" class="btn btn-primary" style="align-self:flex-start;">Post Review →</button>
         <div id="review-success" style="display:none;color:var(--green-bright);font-weight:700;">✅ Thanks for the review!</div>
       </div>
     </div>
@@ -419,7 +419,7 @@
           <div class="contact-icon">✉️</div>
           <div>
             <h4>Email</h4>
-            <a href="mailto:contact@mslawncare.org">contact@mslawncare.org</a>
+            <a href="/cdn-cgi/l/email-protection#f3909c9d87929087b39e809f92849d90928196dd9c8194"><span class="__cf_email__" data-cfemail="fa9995948e9b998eba9789969b8d94999b889fd495889d">[email&#160;protected]</span></a>
           </div>
         </div>
         <div class="contact-info-item">
@@ -467,7 +467,7 @@
   <p>© 2025 <strong>M&S Lawncare & Landscaping</strong> · Matt Steven · 215 West College St · <a href="tel:5153416365" style="color:var(--green-light);">515-341-6365</a></p>
 </footer>
 
-<script type="module">
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="module">
   // ── FIREBASE REVIEWS ──
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
   import { getFirestore, collection, addDoc, getDocs, orderBy, query, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
@@ -527,14 +527,14 @@
     }
   }
 
-  window.submitReview = async function() {
+  document.getElementById('submit-review-btn').addEventListener('click', async function() {
     const name = document.getElementById('review-name').value.trim();
     const text = document.getElementById('review-text').value.trim();
     if (!name || !text || !selectedStars) {
       alert('Please fill in your name, a rating, and a review!');
       return;
     }
-    const btn = document.querySelector('#reviews .btn-primary');
+    const btn = document.getElementById('submit-review-btn');
     btn.textContent = 'Posting...';
     btn.disabled = true;
     try {
@@ -552,7 +552,7 @@
     }
     btn.textContent = 'Post Review →';
     btn.disabled = false;
-  };
+  });
 
   loadReviews();
 
@@ -577,13 +577,4 @@
   }
 
   // Scroll-reveal
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.service-ca
+  const observer = new IntersectionObserver(entries =>
