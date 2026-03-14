@@ -535,7 +535,7 @@
         var s = document.getElementById('review-success');
         s.style.display = 'block'; setTimeout(function() { s.style.display = 'none'; }, 3000);
         loadReviews();
-      }).catch(function() { alert('Something went wrong, try again.'); })
+      }).catch(function(err) { console.error('Firebase error:', err); alert('Error: ' + err.message); })
       .finally(function() { btn.textContent = 'Post Review →'; btn.disabled = false; });
   });
 
