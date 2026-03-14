@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -19,285 +18,283 @@
     --text-dark: #1a1a1a;
   }
 
-- { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-body {
-font-family: ‘Lato’, sans-serif;
-background: var(–cream);
-color: var(–text-dark);
-overflow-x: hidden;
-}
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
 
-/* ── NAV ── */
-nav {
-position: fixed; top: 0; width: 100%; z-index: 100;
-background: var(–green-dark);
-display: flex; align-items: center; justify-content: space-between;
-padding: 0 2.5rem;
-height: 64px;
-box-shadow: 0 2px 12px rgba(0,0,0,.35);
-}
-.nav-logo {
-font-family: ‘Oswald’, sans-serif;
-font-size: 1.5rem; font-weight: 700;
-color: var(–green-light);
-letter-spacing: 1px;
-}
-.nav-logo span { color: var(–white); }
-.nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a {
-color: var(–green-light);
-text-decoration: none;
-font-family: ‘Oswald’, sans-serif;
-font-size: .95rem; letter-spacing: 1px;
-text-transform: uppercase;
-transition: color .2s;
-}
-.nav-links a:hover { color: var(–white); }
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: var(--green-dark);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 64px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.35);
+  }
+  .nav-logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem; font-weight: 700;
+    color: var(--green-light);
+    letter-spacing: 1px;
+  }
+  .nav-logo span { color: var(--white); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--green-light);
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: .95rem; letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--white); }
 
-/* ── HERO ── */
-.hero {
-min-height: 100vh;
-background:
-linear-gradient(160deg, rgba(26,74,26,.82) 0%, rgba(45,122,45,.6) 50%, rgba(26,74,26,.88) 100%),
-url(‘https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80’) center/cover no-repeat;
-display: flex; align-items: center;
-padding: 80px 2.5rem 2.5rem;
-position: relative;
-overflow: hidden;
-}
-.hero::after {
-content: ‘’;
-position: absolute; bottom: 0; left: 0; right: 0;
-height: 80px;
-background: var(–cream);
-clip-path: ellipse(55% 100% at 50% 100%);
-}
-.hero-content { max-width: 680px; }
-.hero-badge {
-display: inline-block;
-background: var(–green-bright);
-color: var(–white);
-font-family: ‘Oswald’, sans-serif;
-font-size: .8rem; letter-spacing: 2px;
-padding: .35rem 1rem;
-border-radius: 2px;
-margin-bottom: 1.4rem;
-animation: fadeUp .6s ease both;
-}
-.hero h1 {
-font-family: ‘Oswald’, sans-serif;
-font-size: clamp(3rem, 8vw, 5.5rem);
-font-weight: 700;
-color: var(–white);
-line-height: 1;
-text-transform: uppercase;
-letter-spacing: 2px;
-margin-bottom: 1rem;
-animation: fadeUp .7s .1s ease both;
-}
-.hero h1 em { color: var(–green-light); font-style: normal; }
-.hero p {
-color: rgba(255,255,255,.85);
-font-size: 1.15rem; line-height: 1.7;
-max-width: 500px;
-margin-bottom: 2rem;
-animation: fadeUp .7s .2s ease both;
-}
-.hero-cta {
-display: flex; gap: 1rem; flex-wrap: wrap;
-animation: fadeUp .7s .3s ease both;
-}
-.btn {
-display: inline-block;
-padding: .85rem 2rem;
-font-family: ‘Oswald’, sans-serif;
-font-size: 1rem; letter-spacing: 1.5px;
-text-transform: uppercase;
-text-decoration: none;
-border-radius: 3px;
-transition: transform .2s, box-shadow .2s;
-cursor: pointer; border: none;
-}
-.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.25); }
-.btn-primary { background: var(–green-bright); color: var(–white); }
-.btn-outline { background: transparent; color: var(–white); border: 2px solid var(–white); }
-.btn-outline:hover { background: var(–white); color: var(–green-dark); }
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background:
+      linear-gradient(160deg, rgba(26,74,26,.82) 0%, rgba(45,122,45,.6) 50%, rgba(26,74,26,.88) 100%),
+      url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80') center/cover no-repeat;
+    display: flex; align-items: center;
+    padding: 80px 2.5rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 80px;
+    background: var(--cream);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .hero-content { max-width: 680px; }
+  .hero-badge {
+    display: inline-block;
+    background: var(--green-bright);
+    color: var(--white);
+    font-family: 'Oswald', sans-serif;
+    font-size: .8rem; letter-spacing: 2px;
+    padding: .35rem 1rem;
+    border-radius: 2px;
+    margin-bottom: 1.4rem;
+    animation: fadeUp .6s ease both;
+  }
+  .hero h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    animation: fadeUp .7s .1s ease both;
+  }
+  .hero h1 em { color: var(--green-light); font-style: normal; }
+  .hero p {
+    color: rgba(255,255,255,.85);
+    font-size: 1.15rem; line-height: 1.7;
+    max-width: 500px;
+    margin-bottom: 2rem;
+    animation: fadeUp .7s .2s ease both;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp .7s .3s ease both;
+  }
+  .btn {
+    display: inline-block;
+    padding: .85rem 2rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem; letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: transform .2s, box-shadow .2s;
+    cursor: pointer; border: none;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.25); }
+  .btn-primary { background: var(--green-bright); color: var(--white); }
+  .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--white); }
+  .btn-outline:hover { background: var(--white); color: var(--green-dark); }
 
-/* ── SECTION SHELL ── */
-section { padding: 5rem 2.5rem; }
-.section-label {
-font-family: ‘Oswald’, sans-serif;
-font-size: .8rem; letter-spacing: 3px;
-text-transform: uppercase;
-color: var(–green-bright);
-margin-bottom: .6rem;
-}
-.section-title {
-font-family: ‘Oswald’, sans-serif;
-font-size: clamp(2rem, 5vw, 3rem);
-font-weight: 700;
-color: var(–green-dark);
-line-height: 1.1;
-margin-bottom: 1.2rem;
-}
-.section-sub {
-color: #555;
-font-size: 1.05rem; line-height: 1.7;
-max-width: 580px;
-margin-bottom: 3rem;
-}
-.centered { text-align: center; }
-.centered .section-sub { margin-left: auto; margin-right: auto; }
+  /* ── SECTION SHELL ── */
+  section { padding: 5rem 2.5rem; }
+  .section-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: .8rem; letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green-bright);
+    margin-bottom: .6rem;
+  }
+  .section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--green-dark);
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+  }
+  .section-sub {
+    color: #555;
+    font-size: 1.05rem; line-height: 1.7;
+    max-width: 580px;
+    margin-bottom: 3rem;
+  }
+  .centered { text-align: center; }
+  .centered .section-sub { margin-left: auto; margin-right: auto; }
 
-/* ── SERVICES ── */
-#services { background: var(–white); }
-.services-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-gap: 1.5rem;
-max-width: 1100px; margin: 0 auto;
-}
-.service-card {
-background: var(–cream);
-border: 2px solid var(–tan);
-border-radius: 8px;
-padding: 2rem 1.8rem;
-transition: border-color .25s, transform .25s, box-shadow .25s;
-position: relative; overflow: hidden;
-}
-.service-card::before {
-content: ‘’;
-position: absolute; top: 0; left: 0;
-width: 5px; height: 100%;
-background: var(–green-bright);
-transform: scaleY(0);
-transform-origin: bottom;
-transition: transform .3s ease;
-}
-.service-card:hover { border-color: var(–green-bright); transform: translateY(-4px); box-shadow: 0 8px 28px rgba(45,122,45,.15); }
-.service-card:hover::before { transform: scaleY(1); }
-.service-icon { font-size: 2.4rem; margin-bottom: 1rem; }
-.service-card h3 {
-font-family: ‘Oswald’, sans-serif;
-font-size: 1.3rem; font-weight: 600;
-color: var(–green-dark);
-margin-bottom: .5rem;
-}
-.service-card p { color: #555; line-height: 1.6; font-size: .95rem; }
+  /* ── SERVICES ── */
+  #services { background: var(--white); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .service-card {
+    background: var(--cream);
+    border: 2px solid var(--tan);
+    border-radius: 8px;
+    padding: 2rem 1.8rem;
+    transition: border-color .25s, transform .25s, box-shadow .25s;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 5px; height: 100%;
+    background: var(--green-bright);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform .3s ease;
+  }
+  .service-card:hover { border-color: var(--green-bright); transform: translateY(-4px); box-shadow: 0 8px 28px rgba(45,122,45,.15); }
+  .service-card:hover::before { transform: scaleY(1); }
+  .service-icon { font-size: 2.4rem; margin-bottom: 1rem; }
+  .service-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3rem; font-weight: 600;
+    color: var(--green-dark);
+    margin-bottom: .5rem;
+  }
+  .service-card p { color: #555; line-height: 1.6; font-size: .95rem; }
 
-/* ── WHY US ── */
-#why {
-background: var(–green-dark);
-color: var(–white);
-}
-#why .section-title { color: var(–white); }
-#why .section-sub { color: rgba(255,255,255,.7); }
-.why-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-gap: 2rem;
-max-width: 900px; margin: 0 auto;
-}
-.why-item { text-align: center; }
-.why-number {
-font-family: ‘Oswald’, sans-serif;
-font-size: 3.5rem; font-weight: 700;
-color: var(–green-light);
-line-height: 1;
-margin-bottom: .4rem;
-}
-.why-item h4 {
-font-family: ‘Oswald’, sans-serif;
-font-size: 1.1rem; color: var(–white);
-margin-bottom: .4rem;
-}
-.why-item p { color: rgba(255,255,255,.65); font-size: .9rem; line-height: 1.5; }
+  /* ── WHY US ── */
+  #why {
+    background: var(--green-dark);
+    color: var(--white);
+  }
+  #why .section-title { color: var(--white); }
+  #why .section-sub { color: rgba(255,255,255,.7); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 900px; margin: 0 auto;
+  }
+  .why-item { text-align: center; }
+  .why-number {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.5rem; font-weight: 700;
+    color: var(--green-light);
+    line-height: 1;
+    margin-bottom: .4rem;
+  }
+  .why-item h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem; color: var(--white);
+    margin-bottom: .4rem;
+  }
+  .why-item p { color: rgba(255,255,255,.65); font-size: .9rem; line-height: 1.5; }
 
-/* ── CONTACT ── */
-#contact { background: var(–cream); }
-.contact-layout {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 4rem;
-max-width: 1000px; margin: 0 auto;
-align-items: start;
-}
-.contact-info-item {
-display: flex; align-items: flex-start; gap: 1rem;
-margin-bottom: 1.6rem;
-}
-.contact-icon {
-width: 44px; height: 44px; flex-shrink: 0;
-background: var(–green-bright);
-border-radius: 6px;
-display: flex; align-items: center; justify-content: center;
-font-size: 1.2rem;
-}
-.contact-info-item h4 {
-font-family: ‘Oswald’, sans-serif;
-color: var(–green-dark); font-size: 1rem;
-margin-bottom: .2rem;
-}
-.contact-info-item p, .contact-info-item a {
-color: #555; font-size: .95rem;
-text-decoration: none;
-transition: color .2s;
-}
-.contact-info-item a:hover { color: var(–green-bright); }
+  /* ── CONTACT ── */
+  #contact { background: var(--cream); }
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1000px; margin: 0 auto;
+    align-items: start;
+  }
+  .contact-info-item {
+    display: flex; align-items: flex-start; gap: 1rem;
+    margin-bottom: 1.6rem;
+  }
+  .contact-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    background: var(--green-bright);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+  }
+  .contact-info-item h4 {
+    font-family: 'Oswald', sans-serif;
+    color: var(--green-dark); font-size: 1rem;
+    margin-bottom: .2rem;
+  }
+  .contact-info-item p, .contact-info-item a {
+    color: #555; font-size: .95rem;
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .contact-info-item a:hover { color: var(--green-bright); }
 
-/* contact form */
-.contact-form { display: flex; flex-direction: column; gap: 1rem; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.contact-form input,
-.contact-form textarea,
-.contact-form select {
-width: 100%;
-padding: .8rem 1rem;
-border: 2px solid var(–tan);
-border-radius: 4px;
-background: var(–white);
-font-family: ‘Lato’, sans-serif;
-font-size: .95rem;
-color: var(–text-dark);
-transition: border-color .2s;
-outline: none;
-}
-.contact-form input:focus,
-.contact-form textarea:focus,
-.contact-form select:focus { border-color: var(–green-bright); }
-.contact-form textarea { resize: vertical; min-height: 110px; }
-.contact-form .btn { align-self: flex-start; font-size: .95rem; }
+  /* contact form */
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select {
+    width: 100%;
+    padding: .8rem 1rem;
+    border: 2px solid var(--tan);
+    border-radius: 4px;
+    background: var(--white);
+    font-family: 'Lato', sans-serif;
+    font-size: .95rem;
+    color: var(--text-dark);
+    transition: border-color .2s;
+    outline: none;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus,
+  .contact-form select:focus { border-color: var(--green-bright); }
+  .contact-form textarea { resize: vertical; min-height: 110px; }
+  .contact-form .btn { align-self: flex-start; font-size: .95rem; }
 
-/* ── FOOTER ── */
-footer {
-background: #0f2b0f;
-color: rgba(255,255,255,.55);
-text-align: center;
-padding: 2rem;
-font-size: .88rem;
-}
-footer strong { color: var(–green-light); }
+  /* ── FOOTER ── */
+  footer {
+    background: #0f2b0f;
+    color: rgba(255,255,255,.55);
+    text-align: center;
+    padding: 2rem;
+    font-size: .88rem;
+  }
+  footer strong { color: var(--green-light); }
 
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-from { opacity: 0; transform: translateY(24px); }
-to   { opacity: 1; transform: translateY(0); }
-}
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 700px) {
-.nav-links { display: none; }
-.contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-.form-row { grid-template-columns: 1fr; }
-}
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .nav-links { display: none; }
+    .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .form-row { grid-template-columns: 1fr; }
+  }
 </style>
-
 </head>
 <body>
 
 <!-- NAV -->
-
 <nav>
   <div class="nav-logo"><span>M&S</span> LAWNCARE</div>
   <ul class="nav-links">
@@ -309,7 +306,6 @@ to   { opacity: 1; transform: translateY(0); }
 </nav>
 
 <!-- HERO -->
-
 <section class="hero">
   <div class="hero-content">
     <div class="hero-badge">🌿 Serving the Local Area</div>
@@ -323,7 +319,6 @@ to   { opacity: 1; transform: translateY(0); }
 </section>
 
 <!-- SERVICES -->
-
 <section id="services">
   <div style="max-width:1100px;margin:0 auto;">
     <p class="section-label">What We Do</p>
@@ -350,7 +345,6 @@ to   { opacity: 1; transform: translateY(0); }
 </section>
 
 <!-- WHY US -->
-
 <section id="why">
   <p class="section-label centered" style="color:var(--green-light)">Why Choose M&S</p>
   <h2 class="section-title centered" style="color:var(--white);text-align:center;margin-bottom:1rem;">Locally Owned.<br>Professionally Done.</h2>
@@ -380,7 +374,6 @@ to   { opacity: 1; transform: translateY(0); }
 </section>
 
 <!-- CONTACT -->
-
 <section id="contact">
   <div style="max-width:1000px;margin:0 auto;">
     <p class="section-label">Reach Out</p>
@@ -418,61 +411,56 @@ to   { opacity: 1; transform: translateY(0); }
         </div>
       </div>
 
-```
-  <form class="contact-form" onsubmit="handleSubmit(event)">
-    <div class="form-row">
-      <input type="text" placeholder="Your Name" required>
-      <input type="tel" placeholder="Your Phone">
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <input type="text" placeholder="Your Name" required>
+          <input type="tel" placeholder="Your Phone">
+        </div>
+        <input type="email" placeholder="Your Email" required>
+        <select>
+          <option value="" disabled selected>Service Needed</option>
+          <option>Lawn Mowing</option>
+          <option>Edging & Trimming</option>
+          <option>Cleanup & Hauling</option>
+          <option>All of the above</option>
+        </select>
+        <textarea placeholder="Tell us about your property or any specific needs..."></textarea>
+        <button type="submit" class="btn btn-primary">Send Message →</button>
+        <div id="form-success" style="display:none;color:var(--green-bright);font-weight:700;">✅ Thanks! We'll be in touch within 24 hours.</div>
+      </form>
     </div>
-    <input type="email" placeholder="Your Email" required>
-    <select>
-      <option value="" disabled selected>Service Needed</option>
-      <option>Lawn Mowing</option>
-      <option>Edging & Trimming</option>
-      <option>Cleanup & Hauling</option>
-      <option>All of the above</option>
-    </select>
-    <textarea placeholder="Tell us about your property or any specific needs..."></textarea>
-    <button type="submit" class="btn btn-primary">Send Message →</button>
-    <div id="form-success" style="display:none;color:var(--green-bright);font-weight:700;">✅ Thanks! We'll be in touch within 24 hours.</div>
-  </form>
-</div>
-```
-
   </div>
 </section>
 
 <!-- FOOTER -->
-
 <footer>
   <p>© 2025 <strong>M&S Lawncare & Landscaping</strong> · Matt Steven · 215 West College St · <a href="tel:5153416365" style="color:var(--green-light);">515-341-6365</a></p>
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
 
-// Smooth scroll
-document.querySelectorAll(‘a[href^=”#”]’).forEach(a => {
-a.addEventListener(‘click’, e => {
-e.preventDefault();
-document.querySelector(a.getAttribute(‘href’))?.scrollIntoView({ behavior: ‘smooth’ });
-});
-});
+  // Fake form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('form-success').style.display = 'block';
+    e.target.reset();
+  }
 
-// Fake form submit
-function handleSubmit(e) {
-e.preventDefault();
-document.getElementById(‘form-success’).style.display = ‘block’;
-e.target.reset();
-}
+  // Scroll-reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
 
-// Scroll-reveal
-const observer = new IntersectionObserver(entries => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-entry.target.style.opacity = ‘1’;
-entry.target.style.transform = ‘translateY(0)’;
-}
-});
-}, { threshold: 0.1 });
-
-document.querySelectorAll(’.service-ca
+  document.querySelectorAll('.service-ca
