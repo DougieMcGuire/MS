@@ -467,114 +467,115 @@
   <p>© 2025 <strong>M&S Lawncare & Landscaping</strong> · Matt Steven · 215 West College St · <a href="tel:5153416365" style="color:var(--green-light);">515-341-6365</a></p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="module">
-  // ── FIREBASE REVIEWS ──
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getFirestore, collection, addDoc, getDocs, orderBy, query, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-  const firebaseConfig = {
+<!-- Firebase compat (no modules, works everywhere) -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script>
+  firebase.initializeApp({
     apiKey: "AIzaSyAorlnzNsH3FWEUzWXhJkM9q_3lH2fJht0",
     authDomain: "chat-bf464.firebaseapp.com",
     projectId: "chat-bf464",
     storageBucket: "chat-bf464.firebasestorage.app",
     messagingSenderId: "49181008421",
-    appId: "1:49181008421:web:629c800901ddbc39f495cc",
-    measurementId: "G-CE1DYG90QK"
-  };
+    appId: "1:49181008421:web:629c800901ddbc39f495cc"
+  });
+  var db = firebase.firestore();
 
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
-  let selectedStars = 0;
-  const stars = document.querySelectorAll('#star-selector span');
-
+  // ── STARS ──
+  var selectedStars = 0;
+  var stars = document.querySelectorAll('#star-selector span');
   function renderStars(n) {
-    stars.forEach(s => s.textContent = parseInt(s.dataset.star) <= n ? '★' : '☆');
-    stars.forEach(s => s.style.color = parseInt(s.dataset.star) <= n ? '#f5a623' : '#aaa');
+    stars.forEach(function(s) {
+      s.textContent = parseInt(s.dataset.star) <= n ? '★' : '☆';
+      s.style.color  = parseInt(s.dataset.star) <= n ? '#f5a623' : '#aaa';
+    });
   }
-
-  stars.forEach(s => {
-    s.addEventListener('mouseover', () => renderStars(parseInt(s.dataset.star)));
-    s.addEventListener('mouseout', () => renderStars(selectedStars));
-    s.addEventListener('click', () => { selectedStars = parseInt(s.dataset.star); renderStars(selectedStars); });
+  stars.forEach(function(s) {
+    s.addEventListener('mouseover', function() { renderStars(parseInt(s.dataset.star)); });
+    s.addEventListener('mouseout',  function() { renderStars(selectedStars); });
+    s.addEventListener('click',     function() { selectedStars = parseInt(s.dataset.star); renderStars(selectedStars); });
   });
 
-  function renderReviews(reviewsData) {
-    const list = document.getElementById('reviews-list');
-    if (!reviewsData.length) {
-      list.innerHTML = '<p style="color:#888;font-style:italic;">No reviews yet — be the first!</p>';
-      return;
-    }
-    list.innerHTML = reviewsData.map(r => `
-      <div style="background:var(--cream);border:2px solid var(--tan);border-radius:8px;padding:1.5rem;">
-        <div style="color:#f5a623;font-size:1.2rem;margin-bottom:.5rem;">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div>
-        <p style="color:#333;line-height:1.6;margin-bottom:.8rem;">"${r.text}"</p>
-        <strong style="font-family:'Oswald',sans-serif;color:var(--green-dark);font-size:.95rem;">— ${r.name}</strong>
-      </div>
-    `).join('');
+  // ── RENDER ──
+  function renderReviews(data) {
+    var list = document.getElementById('reviews-list');
+    if (!data.length) { list.innerHTML = '<p style="color:#888;font-style:italic;">No reviews yet — be the first!</p>'; return; }
+    list.innerHTML = data.map(function(r) {
+      return '<div style="background:var(--cream);border:2px solid var(--tan);border-radius:8px;padding:1.5rem;">'
+        + '<div style="color:#f5a623;font-size:1.2rem;margin-bottom:.5rem;">' + '★'.repeat(r.stars) + '☆'.repeat(5 - r.stars) + '</div>'
+        + '<p style="color:#333;line-height:1.6;margin-bottom:.8rem;">"' + r.text + '"</p>'
+        + '<strong style="font-family:\'Oswald\',sans-serif;color:var(--green-dark);font-size:.95rem;">— ' + r.name + '</strong>'
+        + '</div>';
+    }).join('');
   }
 
-  async function loadReviews() {
-    const list = document.getElementById('reviews-list');
-    list.innerHTML = '<p style="color:#888;font-style:italic;">Loading reviews...</p>';
-    try {
-      const q = query(collection(db, 'reviews'), orderBy('createdAt', 'desc'));
-      const snapshot = await getDocs(q);
-      const reviewsData = snapshot.docs.map(d => d.data());
-      renderReviews(reviewsData);
-    } catch (e) {
-      list.innerHTML = '<p style="color:#888;font-style:italic;">Could not load reviews.</p>';
-    }
+  // ── LOAD ──
+  function loadReviews() {
+    document.getElementById('reviews-list').innerHTML = '<p style="color:#888;font-style:italic;">Loading reviews...</p>';
+    db.collection('reviews').orderBy('createdAt', 'desc').get().then(function(snap) {
+      renderReviews(snap.docs.map(function(d) { return d.data(); }));
+    }).catch(function() {
+      document.getElementById('reviews-list').innerHTML = '<p style="color:#888;font-style:italic;">Could not load reviews.</p>';
+    });
   }
-
-  document.getElementById('submit-review-btn').addEventListener('click', async function() {
-    const name = document.getElementById('review-name').value.trim();
-    const text = document.getElementById('review-text').value.trim();
-    if (!name || !text || !selectedStars) {
-      alert('Please fill in your name, a rating, and a review!');
-      return;
-    }
-    const btn = document.getElementById('submit-review-btn');
-    btn.textContent = 'Posting...';
-    btn.disabled = true;
-    try {
-      await addDoc(collection(db, 'reviews'), { name, text, stars: selectedStars, createdAt: serverTimestamp() });
-      document.getElementById('review-name').value = '';
-      document.getElementById('review-text').value = '';
-      selectedStars = 0;
-      renderStars(0);
-      const success = document.getElementById('review-success');
-      success.style.display = 'block';
-      setTimeout(() => success.style.display = 'none', 3000);
-      loadReviews();
-    } catch (e) {
-      alert('Something went wrong, try again.');
-    }
-    btn.textContent = 'Post Review →';
-    btn.disabled = false;
-  });
-
   loadReviews();
 
-  // Show "Other" text box
+  // ── SUBMIT ──
+  document.getElementById('submit-review-btn').addEventListener('click', function() {
+    var name = document.getElementById('review-name').value.trim();
+    var text = document.getElementById('review-text').value.trim();
+    if (!name || !text || !selectedStars) { alert('Please fill in your name, a rating, and a review!'); return; }
+    var btn = document.getElementById('submit-review-btn');
+    btn.textContent = 'Posting...'; btn.disabled = true;
+    db.collection('reviews').add({ name: name, text: text, stars: selectedStars, createdAt: firebase.firestore.FieldValue.serverTimestamp() })
+      .then(function() {
+        document.getElementById('review-name').value = '';
+        document.getElementById('review-text').value = '';
+        selectedStars = 0; renderStars(0);
+        var s = document.getElementById('review-success');
+        s.style.display = 'block'; setTimeout(function() { s.style.display = 'none'; }, 3000);
+        loadReviews();
+      }).catch(function() { alert('Something went wrong, try again.'); })
+      .finally(function() { btn.textContent = 'Post Review →'; btn.disabled = false; });
+  });
+
+  // ── OTHER SERVICE BOX ──
   document.querySelector('select').addEventListener('change', function() {
     document.getElementById('other-service').style.display = this.value === 'other' ? 'block' : 'none';
   });
 
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
+  // ── SMOOTH SCROLL ──
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
       e.preventDefault();
-      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+      var t = document.querySelector(a.getAttribute('href'));
+      if (t) t.scrollIntoView({ behavior: 'smooth' });
     });
   });
 
-  // Fake form submit
+  // ── CONTACT FORM ──
   function handleSubmit(e) {
     e.preventDefault();
     document.getElementById('form-success').style.display = 'block';
     e.target.reset();
   }
 
-  // Scroll-reveal
-  const observer = new IntersectionObserver(entries =>
+  // ── SCROLL REVEAL ──
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .why-item, .contact-info-item').forEach(function(el) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
