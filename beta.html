@@ -322,8 +322,8 @@
 <section id="services">
   <div style="max-width:1100px;margin:0 auto;">
     <p class="section-label">What We Do</p>
-    <h2 class="section-title">Our Services</h2>
-    <p class="section-sub">From a clean cut to a complete landscape overhaul, M&S Lawncare handles it all with care and expertise.</p>
+    <h2 class="section-title">Lawn Care & Landscaping</h2>
+    <p class="section-sub">From a clean cut to bush trimming and beyond — M&S handles all your lawn and landscaping needs.</p>
     <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 900px;">
       <div class="service-card">
         <div class="service-icon">🌿</div>
@@ -340,15 +340,18 @@
         <h3>Cleanup & Hauling</h3>
         <p>Grass clippings bagged and removed, yard debris cleared. We leave your property tidy — not just mowed.</p>
       </div>
+      <div class="service-card">
+        <div class="service-icon">✂️</div>
+        <h3>Bush & Shrub Trimming</h3>
+        <p>Hedges, bushes, shrubs — kept neat and shaped up. Makes a big difference in how the whole yard looks.</p>
+      </div>
     </div>
   </div>
 </section>
-
-<!-- WHY US -->
 <section id="why">
   <p class="section-label centered" style="color:var(--green-light)">Why Choose M&S</p>
-  <h2 class="section-title centered" style="color:var(--white);text-align:center;margin-bottom:1rem;">Locally Owned.<br>Professionally Done.</h2>
-  <p class="section-sub centered" style="color:rgba(255,255,255,.7);margin-bottom:3rem;">Matt Steven runs every job personally. You'll always know who's on your property and what to expect.</p>
+  <h2 class="section-title centered" style="color:var(--white);text-align:center;margin-bottom:1rem;">Just Matt. No Crew. No Excuses.</h2>
+  <p class="section-sub centered" style="color:rgba(255,255,255,.75);margin-bottom:3rem;max-width:640px;">When you hire M&S, you get Matt — every single time. No random workers showing up, no wondering who's on your lawn. Matt does the work himself, takes pride in it, and won't leave until it looks right. Simple as that.</p>
   <div class="why-grid">
     <div class="why-item">
       <div class="why-number">100%</div>
@@ -421,9 +424,12 @@
           <option value="" disabled selected>Service Needed</option>
           <option>Lawn Mowing</option>
           <option>Edging & Trimming</option>
+          <option>Bush & Shrub Trimming</option>
           <option>Cleanup & Hauling</option>
           <option>All of the above</option>
+          <option value="other">Other</option>
         </select>
+        <textarea id="other-service" placeholder="Describe what you need..." style="display:none;min-height:70px;"></textarea>
         <textarea placeholder="Tell us about your property or any specific needs..."></textarea>
         <button type="submit" class="btn btn-primary">Send Message →</button>
         <div id="form-success" style="display:none;color:var(--green-bright);font-weight:700;">✅ Thanks! We'll be in touch within 24 hours.</div>
@@ -438,6 +444,11 @@
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Show "Other" text box
+  document.querySelector('select').addEventListener('change', function() {
+    document.getElementById('other-service').style.display = this.value === 'other' ? 'block' : 'none';
+  });
+
   // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
