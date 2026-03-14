@@ -1,1 +1,581 @@
-this site has expired. furgus.org for more info
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M&S Lawncare & Landscaping</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-dark: #1a4a1a;
+    --green-mid: #2d7a2d;
+    --green-bright: #3ea83e;
+    --green-light: #7cc97c;
+    --cream: #fdf5e0;
+    --tan: #f0e4c0;
+    --brown: #6b3a1f;
+    --white: #ffffff;
+    --text-dark: #1a1a1a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: var(--green-dark);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 64px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.35);
+  }
+  .nav-logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem; font-weight: 700;
+    color: var(--green-light);
+    letter-spacing: 1px;
+  }
+  .nav-logo span { color: var(--white); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--green-light);
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: .95rem; letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background:
+      linear-gradient(160deg, rgba(26,74,26,.82) 0%, rgba(45,122,45,.6) 50%, rgba(26,74,26,.88) 100%),
+      url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80') center/cover no-repeat;
+    display: flex; align-items: center;
+    padding: 80px 2.5rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 80px;
+    background: var(--cream);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .hero-content { max-width: 680px; }
+  .hero-badge {
+    display: inline-block;
+    background: var(--green-bright);
+    color: var(--white);
+    font-family: 'Oswald', sans-serif;
+    font-size: .8rem; letter-spacing: 2px;
+    padding: .35rem 1rem;
+    border-radius: 2px;
+    margin-bottom: 1.4rem;
+    animation: fadeUp .6s ease both;
+  }
+  .hero h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    animation: fadeUp .7s .1s ease both;
+  }
+  .hero h1 em { color: var(--green-light); font-style: normal; }
+  .hero p {
+    color: rgba(255,255,255,.85);
+    font-size: 1.15rem; line-height: 1.7;
+    max-width: 500px;
+    margin-bottom: 2rem;
+    animation: fadeUp .7s .2s ease both;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp .7s .3s ease both;
+  }
+  .btn {
+    display: inline-block;
+    padding: .85rem 2rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem; letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: transform .2s, box-shadow .2s;
+    cursor: pointer; border: none;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.25); }
+  .btn-primary { background: var(--green-bright); color: var(--white); }
+  .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--white); }
+  .btn-outline:hover { background: var(--white); color: var(--green-dark); }
+
+  /* ── SECTION SHELL ── */
+  section { padding: 5rem 2.5rem; }
+  .section-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: .8rem; letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green-bright);
+    margin-bottom: .6rem;
+  }
+  .section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--green-dark);
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+  }
+  .section-sub {
+    color: #555;
+    font-size: 1.05rem; line-height: 1.7;
+    max-width: 580px;
+    margin-bottom: 3rem;
+  }
+  .centered { text-align: center; }
+  .centered .section-sub { margin-left: auto; margin-right: auto; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--white); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .service-card {
+    background: var(--cream);
+    border: 2px solid var(--tan);
+    border-radius: 8px;
+    padding: 2rem 1.8rem;
+    transition: border-color .25s, transform .25s, box-shadow .25s;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 5px; height: 100%;
+    background: var(--green-bright);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform .3s ease;
+  }
+  .service-card:hover { border-color: var(--green-bright); transform: translateY(-4px); box-shadow: 0 8px 28px rgba(45,122,45,.15); }
+  .service-card:hover::before { transform: scaleY(1); }
+  .service-icon { font-size: 2.4rem; margin-bottom: 1rem; }
+  .service-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3rem; font-weight: 600;
+    color: var(--green-dark);
+    margin-bottom: .5rem;
+  }
+  .service-card p { color: #555; line-height: 1.6; font-size: .95rem; }
+
+  /* ── WHY US ── */
+  #why {
+    background: var(--green-dark);
+    color: var(--white);
+  }
+  #why .section-title { color: var(--white); }
+  #why .section-sub { color: rgba(255,255,255,.7); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 900px; margin: 0 auto;
+  }
+  .why-item { text-align: center; }
+  .why-number {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.5rem; font-weight: 700;
+    color: var(--green-light);
+    line-height: 1;
+    margin-bottom: .4rem;
+  }
+  .why-item h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem; color: var(--white);
+    margin-bottom: .4rem;
+  }
+  .why-item p { color: rgba(255,255,255,.65); font-size: .9rem; line-height: 1.5; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--cream); }
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1000px; margin: 0 auto;
+    align-items: start;
+  }
+  .contact-info-item {
+    display: flex; align-items: flex-start; gap: 1rem;
+    margin-bottom: 1.6rem;
+  }
+  .contact-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    background: var(--green-bright);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+  }
+  .contact-info-item h4 {
+    font-family: 'Oswald', sans-serif;
+    color: var(--green-dark); font-size: 1rem;
+    margin-bottom: .2rem;
+  }
+  .contact-info-item p, .contact-info-item a {
+    color: #555; font-size: .95rem;
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .contact-info-item a:hover { color: var(--green-bright); }
+
+  /* contact form */
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select {
+    width: 100%;
+    padding: .8rem 1rem;
+    border: 2px solid var(--tan);
+    border-radius: 4px;
+    background: var(--white);
+    font-family: 'Lato', sans-serif;
+    font-size: .95rem;
+    color: var(--text-dark);
+    transition: border-color .2s;
+    outline: none;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus,
+  .contact-form select:focus { border-color: var(--green-bright); }
+  .contact-form textarea { resize: vertical; min-height: 110px; }
+  .contact-form .btn { align-self: flex-start; font-size: .95rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0f2b0f;
+    color: rgba(255,255,255,.55);
+    text-align: center;
+    padding: 2rem;
+    font-size: .88rem;
+  }
+  footer strong { color: var(--green-light); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .nav-links { display: none; }
+    .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><span>M&S</span> LAWNCARE</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:5153416365" class="btn btn-primary" style="font-size:.85rem;padding:.55rem 1.3rem;">Call Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">🌿 Serving the Local Area</div>
+    <h1>Your Lawn.<br><em>Our Pride.</em></h1>
+    <p>Professional lawn mowing by Matt Steven. Reliable, affordable, and always on time — keeping your yard sharp all season long.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+      <a href="tel:5153416365" class="btn btn-outline">📞 515-341-6365</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div style="max-width:1100px;margin:0 auto;">
+    <p class="section-label">What We Do</p>
+    <h2 class="section-title">Lawn Care & Landscaping</h2>
+    <p class="section-sub">From a clean cut to bush trimming and beyond — M&S handles all your lawn and landscaping needs.</p>
+    <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 900px;">
+      <div class="service-card">
+        <div class="service-icon">🌿</div>
+        <h3>Lawn Mowing</h3>
+        <p>Reliable, regular mowing on a schedule that works for you. We show up on time and leave your yard looking sharp every visit.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📐</div>
+        <h3>Edging & Trimming</h3>
+        <p>Clean lines along driveways, sidewalks, and beds. The details make the difference — we make sure every edge is crisp.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🍂</div>
+        <h3>Cleanup & Hauling</h3>
+        <p>Grass clippings bagged and removed, yard debris cleared. We leave your property tidy — not just mowed.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✂️</div>
+        <h3>Bush & Shrub Trimming</h3>
+        <p>Hedges, bushes, shrubs — kept neat and shaped up. Makes a big difference in how the whole yard looks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="why">
+  <p class="section-label centered" style="color:var(--green-light)">Why Choose M&S</p>
+  <h2 class="section-title centered" style="color:var(--white);text-align:center;margin-bottom:1rem;">Just Matt. No Crew. No Excuses.</h2>
+  <p class="section-sub centered" style="color:rgba(255,255,255,.75);margin-bottom:3rem;max-width:640px;">When you hire M&S, you get Matt — every single time. No random workers showing up, no wondering who's on your lawn. Matt does the work himself, takes pride in it, and won't leave until it looks right. Simple as that.</p>
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-number">100%</div>
+      <h4>Satisfaction Guaranteed</h4>
+      <p>We don't leave until the job is done right.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-number">5★</div>
+      <h4>Top-Rated Service</h4>
+      <p>Trusted by homeowners across the area.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-number">24h</div>
+      <h4>Fast Response</h4>
+      <p>We respond to quotes within one business day.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-number">$0</div>
+      <h4>Free Estimates</h4>
+      <p>No obligation quotes for any job, big or small.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" style="background:var(--white);">
+  <div style="max-width:1000px;margin:0 auto;">
+    <p class="section-label">What People Are Saying</p>
+    <h2 class="section-title">Reviews</h2>
+
+    <div id="reviews-list" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;margin-bottom:3rem;"></div>
+
+    <div style="background:var(--cream);border:2px solid var(--tan);border-radius:8px;padding:2rem;">
+      <h3 style="font-family:'Oswald',sans-serif;color:var(--green-dark);font-size:1.4rem;margin-bottom:1.2rem;">Leave a Review</h3>
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <input id="review-name" type="text" placeholder="Your Name" style="padding:.8rem 1rem;border:2px solid var(--tan);border-radius:4px;font-family:'Lato',sans-serif;font-size:.95rem;outline:none;">
+        <div id="star-selector" style="display:flex;gap:.4rem;font-size:1.8rem;cursor:pointer;">
+          <span data-star="1">☆</span><span data-star="2">☆</span><span data-star="3">☆</span><span data-star="4">☆</span><span data-star="5">☆</span>
+        </div>
+        <textarea id="review-text" placeholder="How did Matt do?" style="padding:.8rem 1rem;border:2px solid var(--tan);border-radius:4px;font-family:'Lato',sans-serif;font-size:.95rem;min-height:90px;resize:vertical;outline:none;"></textarea>
+        <button id="submit-review-btn" class="btn btn-primary" style="align-self:flex-start;">Post Review →</button>
+        <div id="review-success" style="display:none;color:var(--green-bright);font-weight:700;">✅ Thanks for the review!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div style="max-width:1000px;margin:0 auto;">
+    <p class="section-label">Reach Out</p>
+    <h2 class="section-title">Get a Free Quote</h2>
+    <div class="contact-layout">
+      <div>
+        <p style="color:#555;line-height:1.7;margin-bottom:2rem;">Ready for a greener lawn? Get in touch with Matt directly — one guy, one job at a time. He'll get back to you fast.</p>
+        <div class="contact-info-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <h4>Phone</h4>
+            <a href="tel:5153416365">515-341-6365</a>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <h4>Email</h4>
+            <a href="/cdn-cgi/l/email-protection#f3909c9d87929087b39e809f92849d90928196dd9c8194"><span class="__cf_email__" data-cfemail="fa9995948e9b998eba9789969b8d94999b889fd495889d">[email&#160;protected]</span></a>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon">🌐</div>
+          <div>
+            <h4>Website</h4>
+            <a href="https://mslawncare.org" target="_blank">mslawncare.org</a>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <h4>Address</h4>
+            <p>215 West College St</p>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <input type="text" placeholder="Your Name" required>
+          <input type="tel" placeholder="Your Phone">
+        </div>
+        <input type="email" placeholder="Your Email" required>
+        <select>
+          <option value="" disabled selected>Service Needed</option>
+          <option>Lawn Mowing</option>
+          <option>Edging & Trimming</option>
+          <option>Bush & Shrub Trimming</option>
+          <option>Cleanup & Hauling</option>
+          <option>All of the above</option>
+          <option value="other">Other</option>
+        </select>
+        <textarea id="other-service" placeholder="Describe what you need..." style="display:none;min-height:70px;"></textarea>
+        <textarea placeholder="Tell us about your property or any specific needs..."></textarea>
+        <button type="submit" class="btn btn-primary">Send Message →</button>
+        <div id="form-success" style="display:none;color:var(--green-bright);font-weight:700;">✅ Thanks! We'll be in touch within 24 hours.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <strong>M&S Lawncare & Landscaping</strong> · Matt Steven · 215 West College St · <a href="tel:5153416365" style="color:var(--green-light);">515-341-6365</a></p>
+</footer>
+
+<!-- Firebase compat (no modules, works everywhere) -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script>
+  firebase.initializeApp({
+    apiKey: "AIzaSyAorlnzNsH3FWEUzWXhJkM9q_3lH2fJht0",
+    authDomain: "chat-bf464.firebaseapp.com",
+    projectId: "chat-bf464",
+    storageBucket: "chat-bf464.firebasestorage.app",
+    messagingSenderId: "49181008421",
+    appId: "1:49181008421:web:629c800901ddbc39f495cc"
+  });
+  var db = firebase.firestore();
+
+  // ── STARS ──
+  var selectedStars = 0;
+  var stars = document.querySelectorAll('#star-selector span');
+  function renderStars(n) {
+    stars.forEach(function(s) {
+      s.textContent = parseInt(s.dataset.star) <= n ? '★' : '☆';
+      s.style.color  = parseInt(s.dataset.star) <= n ? '#f5a623' : '#aaa';
+    });
+  }
+  stars.forEach(function(s) {
+    s.addEventListener('mouseover', function() { renderStars(parseInt(s.dataset.star)); });
+    s.addEventListener('mouseout',  function() { renderStars(selectedStars); });
+    s.addEventListener('click',     function() { selectedStars = parseInt(s.dataset.star); renderStars(selectedStars); });
+  });
+
+  // ── RENDER ──
+  function renderReviews(data) {
+    var list = document.getElementById('reviews-list');
+    if (!data.length) { list.innerHTML = '<p style="color:#888;font-style:italic;">No reviews yet — be the first!</p>'; return; }
+    list.innerHTML = data.map(function(r) {
+      return '<div style="background:var(--cream);border:2px solid var(--tan);border-radius:8px;padding:1.5rem;">'
+        + '<div style="color:#f5a623;font-size:1.2rem;margin-bottom:.5rem;">' + '★'.repeat(r.stars) + '☆'.repeat(5 - r.stars) + '</div>'
+        + '<p style="color:#333;line-height:1.6;margin-bottom:.8rem;">"' + r.text + '"</p>'
+        + '<strong style="font-family:\'Oswald\',sans-serif;color:var(--green-dark);font-size:.95rem;">— ' + r.name + '</strong>'
+        + '</div>';
+    }).join('');
+  }
+
+  // ── LOAD ──
+  function loadReviews() {
+    document.getElementById('reviews-list').innerHTML = '<p style="color:#888;font-style:italic;">Loading reviews...</p>';
+    db.collection('reviews').orderBy('createdAt', 'desc').get().then(function(snap) {
+      renderReviews(snap.docs.map(function(d) { return d.data(); }));
+    }).catch(function() {
+      document.getElementById('reviews-list').innerHTML = '<p style="color:#888;font-style:italic;">Could not load reviews.</p>';
+    });
+  }
+  loadReviews();
+
+  // ── SUBMIT ──
+  document.getElementById('submit-review-btn').addEventListener('click', function() {
+    var name = document.getElementById('review-name').value.trim();
+    var text = document.getElementById('review-text').value.trim();
+    if (!name || !text || !selectedStars) { alert('Please fill in your name, a rating, and a review!'); return; }
+    var btn = document.getElementById('submit-review-btn');
+    btn.textContent = 'Posting...'; btn.disabled = true;
+    db.collection('reviews').add({ name: name, text: text, stars: selectedStars, createdAt: firebase.firestore.FieldValue.serverTimestamp() })
+      .then(function() {
+        document.getElementById('review-name').value = '';
+        document.getElementById('review-text').value = '';
+        selectedStars = 0; renderStars(0);
+        var s = document.getElementById('review-success');
+        s.style.display = 'block'; setTimeout(function() { s.style.display = 'none'; }, 3000);
+        loadReviews();
+      }).catch(function(err) { console.error('Firebase error:', err); alert('Error: ' + err.message); })
+      .finally(function() { btn.textContent = 'Post Review →'; btn.disabled = false; });
+  });
+
+  // ── OTHER SERVICE BOX ──
+  document.querySelector('select').addEventListener('change', function() {
+    document.getElementById('other-service').style.display = this.value === 'other' ? 'block' : 'none';
+  });
+
+  // ── SMOOTH SCROLL ──
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      var t = document.querySelector(a.getAttribute('href'));
+      if (t) t.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // ── CONTACT FORM ──
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('form-success').style.display = 'block';
+    e.target.reset();
+  }
+
+  // ── SCROLL REVEAL ──
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .why-item, .contact-info-item').forEach(function(el) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
