@@ -10,7 +10,7 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="geo.region" content="US-IA">
 <meta name="geo.placename" content="Algona, Iowa">
-<meta name="theme-color" content="#070b08">
+<meta name="theme-color" content="#1c1c1e">
 <meta name="color-scheme" content="dark">
 
 <meta property="og:type" content="website">
@@ -30,7 +30,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" type="image/webp" href="logo-sm.webp">
 <link rel="apple-touch-icon" href="logo-sm.webp">
 
@@ -81,264 +81,159 @@
 
 <style>
 :root{
-  --bg:#070b08;
-  --s1:#0d130f;
-  --s2:#121a14;
-  --s3:#18221a;
-  --line:rgba(226,245,232,.09);
-  --line-2:rgba(226,245,232,.16);
-  --t1:#eef4ef;
-  --t2:#adbab0;
-  --t3:#808c83;
-  --green:#3ddc84;
-  --green-hover:#5ae597;
-  --green-ink:#03140a;
-  --green-dim:rgba(61,220,132,.14);
-  --mint:#9ff3c4;
-  --r-sm:12px; --r-md:16px; --r-lg:24px; --r-xl:32px;
+  --bg:#1c1c1e;
+  --raised:#242426;
+  --raised-2:#2c2c2e;
+  --line:#38383a;
+  --t1:#f5f5f7;
+  --t2:#b4b4ba;
+  --t3:#8e8e93;
+  --green:#34c26d;
+  --green-hover:#45cf7c;
+  --green-ink:#0a1a10;
+  --green-text:#5fd690;
+  --quote:#1b7a44;
   --ease-out:cubic-bezier(0.23, 1, 0.32, 1);
   --font:"Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --gutter:clamp(16px, 4.5vw, 40px);
-  --maxw:1200px;
+  --maxw:1120px;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%; scroll-behavior:smooth; scroll-padding-top:88px; accent-color:var(--green); scrollbar-color:#2a3a2e var(--bg); background:var(--bg)}
-body{margin:0; background:var(--bg); color:var(--t1); font-family:var(--font); font-size:17px; line-height:1.55; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; caret-color:var(--green)}
+html{-webkit-text-size-adjust:100%; scroll-behavior:smooth; scroll-padding-top:84px; accent-color:var(--green); scrollbar-color:#48484a var(--bg); background:var(--bg)}
+body{margin:0; background:var(--bg); color:var(--t1); font-family:var(--font); font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; caret-color:var(--green)}
 img{display:block; max-width:100%; height:auto}
-h1,h2,h3{margin:0; font-weight:800; letter-spacing:-.025em; line-height:1.1; text-wrap:balance; color:var(--t1)}
+h1,h2,h3{margin:0; font-weight:700; letter-spacing:-.02em; line-height:1.15; text-wrap:balance; color:var(--t1)}
 p{margin:0}
-a{color:inherit; text-underline-offset:.18em}
+a{color:inherit; text-underline-offset:.2em; text-decoration-thickness:1px}
 ::selection{background:var(--green); color:var(--green-ink)}
-:focus-visible{outline:2.5px solid var(--green); outline-offset:3px; border-radius:10px}
+:focus-visible{outline:2px solid var(--green); outline-offset:3px; border-radius:8px}
 .skip{position:absolute; left:-9999px}
 .skip:focus{left:12px; top:12px; z-index:99; background:var(--green); color:var(--green-ink); padding:10px 16px; border-radius:999px; font-weight:700}
 .wrap{max-width:var(--maxw); margin:0 auto; padding-inline:var(--gutter)}
 .ico{flex:none}
 
-/* pills */
+/* buttons: press feedback only, no glows */
 .btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; height:48px; padding:0 22px; border-radius:999px; border:0; cursor:pointer;
-  font-weight:700; font-size:16px; letter-spacing:-.005em; text-decoration:none; white-space:nowrap;
-  transition:transform 160ms var(--ease-out), background-color 160ms ease, box-shadow 160ms ease, color 160ms ease}
+  font-weight:700; font-size:16px; text-decoration:none; white-space:nowrap;
+  transition:transform 160ms var(--ease-out), background-color 150ms ease, color 150ms ease}
 .btn:active{transform:scale(.97)}
-.btn--primary{background:var(--green); color:var(--green-ink); box-shadow:0 0 0 1px rgba(61,220,132,.4), 0 8px 24px -8px rgba(61,220,132,.55)}
-.btn--primary:hover{background:var(--green-hover)}
-.btn--ghost{background:rgba(13,19,15,.6); color:var(--t1); box-shadow:inset 0 0 0 1px var(--line-2); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px)}
-.btn--ghost:hover{box-shadow:inset 0 0 0 1px rgba(226,245,232,.4)}
-.btn--soft{background:var(--green-dim); color:var(--mint)}
-.btn--soft:hover{background:rgba(61,220,132,.22)}
-.btn--lg{height:56px; padding:0 28px; font-size:17px}
+.btn--primary{background:var(--green); color:var(--green-ink)}
+.btn--secondary{background:var(--raised-2); color:var(--t1)}
+.btn--lg{height:54px; padding:0 26px; font-size:17px}
 
 /* header */
-.hdr{position:sticky; top:0; z-index:40; background:rgba(7,11,8,.72); backdrop-filter:saturate(160%) blur(14px); -webkit-backdrop-filter:saturate(160%) blur(14px); border-bottom:1px solid transparent; transition:border-color 200ms ease, background-color 200ms ease}
-.hdr.is-scrolled{border-bottom-color:var(--line); background:rgba(7,11,8,.88)}
-.hdr__in{max-width:var(--maxw); margin:0 auto; padding:10px var(--gutter); display:flex; align-items:center; gap:12px}
+.hdr{position:sticky; top:0; z-index:40; background:var(--bg); border-bottom:1px solid var(--line)}
+.hdr__in{max-width:var(--maxw); margin:0 auto; padding:10px var(--gutter); display:flex; align-items:center; gap:16px}
 .brand{display:flex; align-items:center; gap:10px; text-decoration:none; min-width:0; margin-right:auto}
-.brand img{width:44px; flex:none}
-.brand b{font-weight:800; font-size:17px; letter-spacing:-.02em; line-height:1.1}
-.brand b span{display:block; font-weight:600; font-size:13px; color:var(--t3); letter-spacing:0}
-.where{display:none; align-items:center; border-radius:999px; box-shadow:inset 0 0 0 1px var(--line-2); background:rgba(13,19,15,.7); height:48px; padding:0 6px 0 4px}
-.where span, .where a{display:inline-flex; align-items:center; gap:8px; padding:0 14px; font-size:15px; font-weight:600; text-decoration:none; height:36px}
-.where span + a{border-left:1px solid var(--line-2)}
-.where a{border-radius:999px; transition:background-color 160ms ease}
-.where a:hover{background:rgba(226,245,232,.06)}
-.where svg{color:var(--green)}
-.hdr .btn{height:44px; padding:0 18px; font-size:15px}
-.hdr__sub{display:flex; gap:8px; padding:0 var(--gutter) 10px; max-width:var(--maxw); margin:0 auto}
-.chip-sm{display:inline-flex; align-items:center; gap:6px; height:32px; padding:0 12px; border-radius:999px; background:rgba(226,245,232,.06); box-shadow:inset 0 0 0 1px var(--line); font-size:14px; font-weight:600; text-decoration:none; white-space:nowrap}
-.chip-sm svg{color:var(--green)}
+.brand img{width:42px; flex:none}
+.brand b{font-weight:700; font-size:16.5px; letter-spacing:-.01em; line-height:1.15}
+.brand b span{display:block; font-weight:500; font-size:13px; color:var(--t3); letter-spacing:0}
+.hdr__info{display:none; align-items:center; gap:22px; font-size:15px; color:var(--t2)}
+.hdr__info span, .hdr__info a{display:inline-flex; align-items:center; gap:7px; text-decoration:none}
+.hdr__info a{color:var(--t1); font-weight:600}
+.hdr__info svg{color:var(--t3)}
+.hdr .btn{height:42px; padding:0 18px; font-size:15px}
+.hdr__sub{display:flex; gap:18px; padding:0 var(--gutter) 10px; max-width:var(--maxw); margin:0 auto; font-size:14.5px; color:var(--t2)}
+.hdr__sub span, .hdr__sub a{display:inline-flex; align-items:center; gap:6px; text-decoration:none}
+.hdr__sub a{color:var(--t1); font-weight:600}
+.hdr__sub svg{color:var(--t3)}
 
-/* hero: the night lawn */
-.hero{position:relative; overflow:hidden; isolation:isolate; margin-top:-1px;
-  background:linear-gradient(#04070a 0%, #07110b 48%, #0b2414 100%)}
-.lawn{position:absolute; inset:0; width:100%; height:100%; z-index:-1; display:block}
-.hero::after{content:""; position:absolute; left:0; right:0; bottom:0; height:56px; background:linear-gradient(rgba(7,11,8,0), var(--bg)); z-index:-1; pointer-events:none}
-.hero__in{max-width:var(--maxw); margin:0 auto; padding:56px var(--gutter) 46vh; display:grid; gap:28px}
-.hero h1{font-size:clamp(42px, 10vw, 84px); letter-spacing:-.04em; line-height:.98; font-weight:900; text-shadow:0 2px 30px rgba(0,0,0,.5)}
-.hero h1 em{font-style:normal; color:var(--green)}
-.hero__lead{margin-top:18px; font-size:clamp(17px, 2vw, 20px); color:#c9d6cc; max-width:42ch; text-shadow:0 1px 16px rgba(0,0,0,.6)}
+/* hero: headline + the card */
+.hero{padding:48px 0 64px}
+.hero__grid{display:grid; gap:36px; align-items:center}
+.hero h1{font-size:clamp(34px, 7.4vw, 56px); letter-spacing:-.03em; line-height:1.05}
+.hero__lead{margin-top:16px; font-size:clamp(17px, 2vw, 19px); color:var(--t2); max-width:44ch}
 .hero__acts{margin-top:28px; display:flex; flex-wrap:wrap; gap:10px}
-.trust{margin:22px 0 0; padding:0; list-style:none; display:flex; flex-wrap:wrap; gap:8px 18px; color:#c3d0c6; font-size:15px; font-weight:600}
-.trust li{display:inline-flex; align-items:center; gap:7px}
-.trust svg{color:var(--green)}
-.hint{margin-top:26px; display:none; align-items:center; gap:8px; font-size:13.5px; color:var(--t3); font-weight:600}
-.hint i{width:18px; height:28px; border-radius:10px; box-shadow:inset 0 0 0 1.5px var(--t3); position:relative}
-.hint i::after{content:""; position:absolute; left:50%; top:6px; width:3px; height:6px; margin-left:-1.5px; border-radius:2px; background:var(--green); animation:wheel 1.6s var(--ease-out) infinite}
-@keyframes wheel{0%{opacity:0; transform:translateY(-3px)} 30%{opacity:1} 100%{opacity:0; transform:translateY(8px)}}
-
-/* entrance: rare, first-time, short stagger */
-@keyframes rise{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none}}
-.hero__copy > *{animation:rise 620ms var(--ease-out) both}
-.hero__copy > :nth-child(2){animation-delay:60ms}
-.hero__copy > :nth-child(3){animation-delay:120ms}
-.hero__copy > :nth-child(4){animation-delay:180ms}
-.hero__copy > :nth-child(5){animation-delay:240ms}
-.stack{animation:rise 700ms var(--ease-out) 260ms both}
-
-/* app cards over the lawn */
-.stack{display:grid; gap:12px; align-content:start}
-.ucard{background:rgba(13,19,15,.86); backdrop-filter:blur(16px) saturate(140%); -webkit-backdrop-filter:blur(16px) saturate(140%); border-radius:var(--r-lg); box-shadow:inset 0 0 0 1px var(--line-2), 0 24px 60px -20px rgba(0,0,0,.8); padding:20px}
-.ucard__top{display:flex; align-items:center; justify-content:space-between; gap:12px}
-.ucard h2{font-size:19px; letter-spacing:-.02em}
-.badge{display:inline-flex; align-items:center; gap:7px; height:28px; padding:0 11px; border-radius:999px; background:var(--green-dim); color:var(--mint); font-size:13.5px; font-weight:700; white-space:nowrap}
-.badge i{width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 0 3px rgba(61,220,132,.2), 0 0 10px rgba(61,220,132,.8)}
-.season{margin:14px 0 0; padding:0; list-style:none; display:grid; gap:8px}
-.season li{display:flex; align-items:center; gap:12px; padding:10px 12px; border-radius:var(--r-sm); background:rgba(226,245,232,.045); box-shadow:inset 0 0 0 1px var(--line); font-weight:600}
-.season li span{width:34px; height:34px; border-radius:10px; background:var(--green-dim); display:grid; place-items:center; color:var(--green); flex:none}
-.ucard--person{display:flex; align-items:center; gap:14px; padding:14px 16px}
-.avatar{width:48px; height:48px; border-radius:50%; background:var(--green); color:var(--green-ink); display:grid; place-items:center; font-weight:900; font-size:17px; flex:none}
-.ucard--person div{min-width:0; flex:1}
-.ucard--person b{display:block; font-size:16px; line-height:1.25}
-.ucard--person small{display:block; color:var(--t3); font-size:14px}
-.ucard--person .btn{height:40px; padding:0 16px; font-size:14.5px}
+.hero__note{margin-top:16px; font-size:15px; color:var(--t3)}
+.hero__note a{color:var(--t1); font-weight:600; text-decoration:none}
+.card{margin:0}
+.card img{border-radius:14px; box-shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 32px rgba(0,0,0,.35)}
+.card figcaption{margin-top:14px; font-size:14.5px; color:var(--t3); display:flex; flex-wrap:wrap; gap:4px 14px}
 
 /* sections */
-.sec{padding:80px 0 0}
-.sec__head{display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:12px 24px; margin-bottom:24px}
-.sec h2{font-size:clamp(30px, 5.6vw, 44px)}
-.sec__head p{color:var(--t2); max-width:46ch}
+.sec{padding:64px 0; border-top:1px solid var(--line)}
+.sec h2{font-size:clamp(26px, 4.6vw, 34px)}
+.sec__intro{margin-top:10px; color:var(--t2); max-width:52ch}
 
-/* category bar */
-.cats{display:flex; gap:8px; overflow-x:auto; scrollbar-width:none; padding:2px var(--gutter) 6px; margin:0 calc(var(--gutter) * -1) 20px; scroll-snap-type:x proximity; scroll-padding-inline:var(--gutter)}
-.cats::-webkit-scrollbar{display:none}
-.cats a{display:inline-flex; align-items:center; gap:8px; height:44px; padding:0 16px; border-radius:999px; background:var(--s1); box-shadow:inset 0 0 0 1px var(--line); font-weight:600; font-size:15px; text-decoration:none; white-space:nowrap; scroll-snap-align:start;
-  transition:box-shadow 160ms ease, background-color 160ms ease, transform 160ms var(--ease-out)}
-.cats a:active{transform:scale(.97)}
-.cats a svg{color:var(--green)}
-
-/* service cards */
-.grid{display:grid; grid-template-columns:1fr; gap:16px; list-style:none; margin:0; padding:0}
-.svc{position:relative; border-radius:var(--r-lg); transition:transform 200ms var(--ease-out)}
-.svc__art{position:relative; aspect-ratio:16/9; border-radius:var(--r-lg); background:radial-gradient(120% 90% at 50% 120%, rgba(61,220,132,.16), transparent 60%), var(--s1); display:grid; place-items:center; color:var(--green); overflow:hidden; box-shadow:inset 0 0 0 1px var(--line); transition:box-shadow 200ms ease}
-.svc__art svg{width:56px; height:56px; transition:transform 300ms var(--ease-out)}
-.svc .badge{position:absolute; top:12px; left:12px; z-index:1; background:rgba(7,11,8,.8)}
-.svc__body{padding:12px 4px 4px}
-.svc h3{font-size:18px; letter-spacing:-.015em; line-height:1.25; display:flex; justify-content:space-between; gap:12px}
-.svc h3 small{font-size:14px; font-weight:600; color:var(--t3); letter-spacing:0; white-space:nowrap; padding-top:2px}
-.svc p{margin-top:2px; color:var(--t2); font-size:15.5px; line-height:1.45}
-.svc.is-hit .svc__art{box-shadow:inset 0 0 0 2px var(--green)}
-
-/* steps */
-.steps{list-style:none; margin:0; padding:0; display:grid; gap:12px; counter-reset:s}
-.steps li{background:var(--s1); box-shadow:inset 0 0 0 1px var(--line); border-radius:var(--r-lg); padding:22px; counter-increment:s}
-.steps li::before{content:counter(s); width:36px; height:36px; border-radius:50%; background:var(--green); color:var(--green-ink); display:grid; place-items:center; font-weight:900; margin-bottom:14px}
-.steps h3{font-size:19px}
-.steps p{margin-top:4px; color:var(--t2); font-size:15.5px}
+/* services: a clean list */
+.svc{list-style:none; margin:28px 0 0; padding:0; display:grid}
+.svc li{padding:18px 0; border-top:1px solid var(--line)}
+.svc li:last-child{border-bottom:1px solid var(--line)}
+.svc__top{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:2px 16px}
+.svc h3{font-size:18px; letter-spacing:-.01em}
+.svc__when{font-size:14.5px; color:var(--t3); white-space:nowrap}
+.svc__when b{color:var(--green-text); font-weight:600; margin-right:8px}
+.svc p{margin-top:4px; color:var(--t2); font-size:16px; line-height:1.5}
 
 /* about + mission */
-.story{display:grid; gap:16px}
-.about{background:var(--s1); border-radius:var(--r-xl); box-shadow:inset 0 0 0 1px var(--line); padding:32px 24px}
-.about h2, .mission h2{font-size:clamp(26px, 4.6vw, 34px)}
-.about__body{margin-top:16px; color:var(--t2); display:grid; gap:14px}
-.about__close{color:var(--t1); font-weight:700}
-.mission{background:radial-gradient(120% 80% at 100% 0%, rgba(61,220,132,.22), transparent 55%), #0c2416; color:#c9dccf; border-radius:var(--r-xl); box-shadow:inset 0 0 0 1px rgba(61,220,132,.18); padding:32px 24px; display:flex; flex-direction:column}
-.mission__body{margin-top:16px; display:grid; gap:14px}
-.mission__tag{margin-top:auto; padding-top:28px; font-size:clamp(28px, 4.4vw, 38px); font-weight:900; letter-spacing:-.035em; color:#fff; line-height:1.05}
-.mission__tag span{color:var(--green)}
+.prose{display:grid; gap:20px}
+.prose__body{display:grid; gap:16px; color:var(--t2); max-width:66ch}
+.prose__close{color:var(--t1); font-weight:600}
+.tagline{margin-top:28px; font-size:clamp(24px, 3.6vw, 30px); font-weight:700; letter-spacing:-.02em; color:var(--t1)}
+.tagline span{color:var(--green-text)}
 
-/* card */
-.cardsec{background:var(--s1); box-shadow:inset 0 0 0 1px var(--line); border-radius:var(--r-xl); padding:28px 20px; display:grid; gap:24px; align-items:center}
-.cardsec h2{font-size:clamp(26px, 4.6vw, 34px)}
-.cardsec p{margin-top:8px; color:var(--t2)}
-.cardsec__acts{margin-top:20px; display:flex; flex-wrap:wrap; gap:10px}
-.cardsec img{border-radius:var(--r-md); box-shadow:0 0 0 1px var(--line), 0 30px 60px -20px rgba(0,0,0,.9)}
-
-/* closing cta */
-.cta{position:relative; overflow:hidden; border-radius:var(--r-xl); padding:48px 24px; text-align:center;
-  background:repeating-linear-gradient(100deg, rgba(255,255,255,.035) 0 46px, rgba(0,0,0,0) 46px 92px), linear-gradient(160deg, #15693a, #0c3d22);
-  box-shadow:inset 0 0 0 1px rgba(61,220,132,.25)}
-.cta h2{color:#fff; font-size:clamp(32px, 6.4vw, 54px); letter-spacing:-.04em; font-weight:900}
-.cta p{margin:12px auto 0; max-width:44ch; color:#cdeed9; font-size:18px}
-.cta__acts{margin-top:26px; display:flex; flex-wrap:wrap; justify-content:center; gap:10px}
-.cta .btn--white{background:#fff; color:var(--green-ink)}
-.cta .btn--white:hover{background:#e9fbf0}
-.cta .btn--line{color:#fff; box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.55); background:transparent}
-.cta .btn--line:hover{box-shadow:inset 0 0 0 1.5px #fff; background:rgba(255,255,255,.08)}
+/* free quote box */
+.quote{background:var(--quote); border-radius:28px; padding:44px 24px; text-align:center}
+.quote h2{color:#fff; font-size:clamp(30px, 6vw, 46px); letter-spacing:-.03em}
+.quote p{margin:12px auto 0; max-width:44ch; color:#e3f5ea; font-size:18px}
+.quote__acts{margin-top:26px; display:flex; flex-wrap:wrap; justify-content:center; gap:10px}
+.quote .btn--white{background:#fff; color:#0d2a18}
+.quote .btn--outline{background:transparent; color:#fff; box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.7)}
 
 /* footer */
-.ftr{margin-top:80px; border-top:1px solid var(--line); font-size:15px; color:var(--t2)}
-.ftr__in{max-width:var(--maxw); margin:0 auto; padding:40px var(--gutter) 110px; display:grid; gap:28px}
-.ftr__tag{margin-top:14px; max-width:32ch}
-.ftr h4{margin:0 0 10px; font-size:15px; color:var(--t1)}
-.ftr ul{list-style:none; margin:0; padding:0; display:grid; gap:6px}
-.ftr a{text-decoration:none}
-.ftr address a:hover, .ftr__base a:hover{text-decoration:underline; color:var(--t1)}
-.ftr address{font-style:normal; line-height:1.7}
-.ftr__base{grid-column:1/-1; padding-top:20px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:6px 20px; justify-content:space-between; font-size:14px; color:var(--t3)}
+.ftr{border-top:1px solid var(--line); font-size:14.5px; color:var(--t3)}
+.ftr__in{max-width:var(--maxw); margin:0 auto; padding:28px var(--gutter) 108px; display:flex; flex-wrap:wrap; gap:8px 24px; justify-content:space-between}
+.ftr a{color:var(--t2); text-decoration:none}
 
-/* mobile dock */
+/* phone call bar */
 .dock{position:fixed; left:0; right:0; bottom:0; z-index:40; display:grid; grid-template-columns:1.35fr 1fr; gap:8px;
-  padding:10px 12px calc(10px + env(safe-area-inset-bottom)); background:rgba(7,11,8,.9); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-top:1px solid var(--line)}
-.dock .btn{height:52px}
+  padding:10px 12px calc(10px + env(safe-area-inset-bottom)); background:var(--bg); border-top:1px solid var(--line)}
+.dock .btn{height:50px}
 
 @media (hover:hover) and (pointer:fine){
-  .cats a:hover{box-shadow:inset 0 0 0 1px rgba(226,245,232,.4)}
-  .svc:hover{transform:translateY(-3px)}
-  .svc:hover .svc__art{box-shadow:inset 0 0 0 1px rgba(61,220,132,.35)}
-  .svc:hover .svc__art svg{transform:scale(1.08)}
-  .hint{display:inline-flex}
+  .btn--primary:hover{background:var(--green-hover)}
+  .btn--secondary:hover{background:#3a3a3c}
+  .quote .btn--white:hover{background:#eef8f2}
+  .quote .btn--outline:hover{box-shadow:inset 0 0 0 1.5px #fff}
+  .hdr__info a:hover, .hero__note a:hover, .ftr a:hover{text-decoration:underline}
 }
-@media (max-width:639px){
-  .hero__in{padding:40px var(--gutter) 34vh; gap:36px}
-  .hero__lead{font-size:16.5px; margin-top:14px}
-  .hero__acts{margin-top:22px}
-  .hero__acts .btn, .cardsec__acts .btn{flex:1 1 100%}
-  .hero__acts .btn--lg{height:52px}
-  .trust{gap:4px 14px; font-size:14px; margin-top:16px}
-  .trust svg{width:16px; height:16px}
-  .grid{gap:0}
-  .svc{display:grid; grid-template-columns:76px minmax(0,1fr); gap:14px; align-items:center; padding:14px 0; border-bottom:1px solid var(--line); border-radius:0}
-  .svc:first-child{border-top:1px solid var(--line)}
-  .svc__art{aspect-ratio:1/1; border-radius:var(--r-md)}
-  .svc__art svg{width:34px; height:34px}
-  .svc__body{padding:0}
-  .svc .badge{position:static; height:24px; font-size:12.5px; margin-bottom:6px; background:var(--green-dim)}
-  .svc h3{font-size:17.5px}
-  .svc p{font-size:15px}
+@media (max-width:599px){
+  .hero{padding:32px 0 56px}
+  .hero__acts .btn{flex:1 1 100%}
 }
-@media (max-width:380px){
-  .brand b{font-size:15.5px}
-  .brand img{width:38px}
+@media (max-width:370px){
+  .brand b{font-size:15px}
   .hdr .btn{padding:0 14px; font-size:14px}
 }
-@media (min-width:640px){
-  .grid{grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px 20px}
-  .steps{grid-template-columns:repeat(3, minmax(0,1fr))}
-  .about, .mission{padding:40px}
-  .cardsec{padding:40px}
-  .cta{padding:64px 40px}
-  .ftr__in{grid-template-columns:repeat(2, 1fr)}
+@media (min-width:600px){
+  .quote{padding:64px 40px}
 }
-@media (min-width:860px){
+@media (min-width:820px){
   .hdr__sub{display:none}
-  .where{display:inline-flex}
+  .hdr__info{display:flex}
   .brand{margin-right:0}
   .hdr__in{justify-content:space-between}
 }
-@media (min-width:1000px){
+@media (min-width:960px){
   body{font-size:17.5px}
-  .hdr__in{padding-block:14px}
-  .brand img{width:50px}
-  .brand b{font-size:19px}
-  .hdr .btn{height:48px; padding:0 22px; font-size:16px}
-  .hero{min-height:min(100svh, 980px)}
-  .hero__in{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr); gap:56px; padding:96px var(--gutter) 300px; align-items:start}
-  .stack{max-width:420px; justify-self:end; width:100%; margin-top:12px}
-  .sec{padding-top:104px}
-  .grid{grid-template-columns:repeat(3, minmax(0,1fr)); gap:32px 24px}
-  .story{grid-template-columns:1.25fr 1fr; gap:20px}
-  .about, .mission{padding:48px}
-  .cardsec{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); gap:56px; padding:56px}
-  .cta{padding:80px 48px}
-  .ftr{margin-top:104px}
-  .ftr__in{grid-template-columns:1.6fr 1fr 1fr 1.2fr; padding-bottom:40px}
+  .hdr__in{padding-block:12px}
+  .brand img{width:48px}
+  .brand b{font-size:18px}
+  .hdr .btn{height:46px; padding:0 22px; font-size:16px}
+  .hero{padding:80px 0 96px}
+  .hero__grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:64px}
+  .sec{padding:88px 0}
+  .svc{grid-template-columns:1fr 1fr; column-gap:48px}
+  .svc li:nth-last-child(2):nth-child(odd){border-bottom:1px solid var(--line)}
+  .prose{grid-template-columns:minmax(0,1fr) minmax(0,2fr); gap:48px}
+  .quote{padding:80px 48px}
   .dock{display:none}
+  .ftr__in{padding-bottom:28px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  *{transition:none !important}
-  .hero__copy > *, .stack{animation:fade 300ms ease both}
-  .hint i::after{animation:none}
-  @keyframes fade{from{opacity:0} to{opacity:1}}
+  .btn{transition:background-color 150ms ease, color 150ms ease}
+  .btn:active{transform:none}
 }
 </style>
 </head>
@@ -347,174 +242,101 @@ a{color:inherit; text-underline-offset:.18em}
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
-    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></symbol>
-    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
-    <symbol id="s-lawn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></symbol>
-    <symbol id="s-hedge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></symbol>
-    <symbol id="s-rock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="14.5" r="4.5"/><circle cx="17" cy="16" r="3.5"/><circle cx="14.5" cy="7.5" r="3.5"/></symbol>
-    <symbol id="s-clean" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8"/><path d="M4 10h16"/><path d="M5.5 10v4.5"/><path d="M9.5 10v6"/><path d="M14.5 10v6"/><path d="M18.5 10v4.5"/><path d="M6 21h12"/></symbol>
-    <symbol id="s-snow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M12 2v20"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></symbol>
-    <symbol id="s-mulch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></symbol>
-    <symbol id="s-shovel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22v-5l5-5 5 5-5 5z"/><path d="M9.5 14.5 16 8"/><path d="m17 2 5 5-.5.5a3.53 3.53 0 0 1-5 0a3.53 3.53 0 0 1 0-5L17 2"/></symbol>
-    <symbol id="s-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 3 3 3 3-3"/><path d="M7 8h10l2 11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/></symbol>
-    <symbol id="s-thatch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M6 20v-6"/><path d="M10 20v-9"/><path d="M14 20v-7"/><path d="M18 20v-10"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-contact" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6"/><path d="M22 11h-6"/></symbol>
   </defs>
 </svg>
 
-<header class="hdr" data-hdr>
+<header class="hdr">
   <div class="hdr__in">
     <a class="brand" href="#top">
       <img src="logo-sm.webp" width="180" height="153" alt="">
       <b>M&amp;S Lawncare<span>&amp; Landscaping</span></b>
     </a>
-    <div class="where">
-      <span><svg class="ico" width="16" height="16"><use href="#i-pin"/></svg>Algona, Iowa</span>
-      <a href="tel:+15153416365"><svg class="ico" width="16" height="16"><use href="#i-phone"/></svg>(515) 341-6365</a>
-    </div>
+    <p class="hdr__info">
+      <span><svg class="ico" width="15" height="15"><use href="#i-pin"/></svg>Algona, Iowa</span>
+      <a href="tel:+15153416365"><svg class="ico" width="15" height="15"><use href="#i-phone"/></svg>(515) 341-6365</a>
+    </p>
     <a class="btn btn--primary" href="https://www.yardbook.com/businesses/140400" target="_blank" rel="noopener">Get Quote Now</a>
   </div>
-  <div class="hdr__sub">
-    <span class="chip-sm"><svg class="ico" width="14" height="14"><use href="#i-pin"/></svg>Algona, Iowa</span>
-    <a class="chip-sm" href="tel:+15153416365"><svg class="ico" width="14" height="14"><use href="#i-phone"/></svg>(515) 341-6365</a>
-  </div>
+  <p class="hdr__sub">
+    <span><svg class="ico" width="14" height="14"><use href="#i-pin"/></svg>Algona, Iowa</span>
+    <a href="tel:+15153416365"><svg class="ico" width="14" height="14"><use href="#i-phone"/></svg>(515) 341-6365</a>
+  </p>
 </header>
 
 <main id="main">
 
-  <section class="hero" id="top" data-hero>
-    <canvas class="lawn" data-lawn aria-hidden="true"></canvas>
-    <div class="hero__in">
-      <div class="hero__copy">
-        <h1>Your lawn, <em>handled.</em></h1>
-        <p class="hero__lead">Lawn care, clean-ups, landscaping and snow removal for homes and businesses in Algona and the surrounding area.</p>
+  <section class="hero" id="top">
+    <div class="wrap hero__grid">
+      <div>
+        <h1>Lawn care and landscaping in Algona, Iowa.</h1>
+        <p class="hero__lead">Mowing, clean-ups, landscaping and snow removal for homes and businesses in Algona and the surrounding area. Locally owned by Matthew Steven.</p>
         <div class="hero__acts">
-          <a class="btn btn--primary btn--lg" href="https://www.yardbook.com/businesses/140400" target="_blank" rel="noopener">Get a free quote <svg class="ico" width="18" height="18"><use href="#i-arrow"/></svg></a>
-          <a class="btn btn--ghost btn--lg" href="tel:+15153416365"><svg class="ico" width="18" height="18"><use href="#i-phone"/></svg>Call or text</a>
+          <a class="btn btn--primary btn--lg" href="https://www.yardbook.com/businesses/140400" target="_blank" rel="noopener">Get a free quote</a>
+          <a class="btn btn--secondary btn--lg" href="mslawncare.vcf" download="MS-Lawncare.vcf"><svg class="ico" width="18" height="18"><use href="#i-contact"/></svg>Save to contacts</a>
         </div>
-        <ul class="trust">
-          <li><svg class="ico" width="18" height="18"><use href="#i-check"/></svg>Free estimates</li>
-          <li><svg class="ico" width="18" height="18"><use href="#i-check"/></svg>Locally owned</li>
-          <li><svg class="ico" width="18" height="18"><use href="#i-check"/></svg>Year-round</li>
-        </ul>
-        <p class="hint" aria-hidden="true"><i></i>Scroll to mow</p>
+        <p class="hero__note">Or call or text <a href="tel:+15153416365">(515) 341-6365</a></p>
       </div>
-
-      <div class="stack">
-        <section class="ucard" aria-labelledby="season-h">
-          <div class="ucard__top">
-            <h2 id="season-h">In season now</h2>
-            <span class="badge"><i></i><span data-month>November</span></span>
-          </div>
-          <ul class="season" data-season>
-            <li><span><svg width="18" height="18"><use href="#s-clean"/></svg></span>Fall Clean-Ups</li>
-            <li><span><svg width="18" height="18"><use href="#s-bag"/></svg></span>Bagging</li>
-            <li><span><svg width="18" height="18"><use href="#s-snow"/></svg></span>Snow Removal</li>
-          </ul>
-        </section>
-        <div class="ucard ucard--person">
-          <span class="avatar" aria-hidden="true">MS</span>
-          <div><b>Matthew W. Steven</b><small>Founder &amp; CEO</small></div>
-          <a class="btn btn--soft" href="tel:+15153416365">Call</a>
-        </div>
-      </div>
+      <figure class="card">
+        <img src="business-card.webp" width="1400" height="800" fetchpriority="high"
+             alt="Business card: Matthew W. Steven, Founder &amp; CEO, M&amp;S Lawncare &amp; Landscaping. Phone (515) 341-6365, contact@mslawncare.org, mslawncare.org, 215 West College St, Algona, IA. Your Lawn. Our Pride.">
+      </figure>
     </div>
   </section>
 
   <section class="sec" id="services" aria-labelledby="services-h">
     <div class="wrap">
-      <div class="sec__head">
-        <h2 id="services-h">Services</h2>
-        <p>Everything your yard needs, from the first spring clean-up to the last snowfall.</p>
-      </div>
-
-      <nav class="cats" aria-label="Jump to a service">
-        <a href="#svc-lawn"><svg class="ico" width="18" height="18"><use href="#s-lawn"/></svg>Lawn Care</a>
-        <a href="#svc-hedge"><svg class="ico" width="18" height="18"><use href="#s-hedge"/></svg>Hedges</a>
-        <a href="#svc-rock"><svg class="ico" width="18" height="18"><use href="#s-rock"/></svg>Rock</a>
-        <a href="#svc-clean"><svg class="ico" width="18" height="18"><use href="#s-clean"/></svg>Clean-Ups</a>
-        <a href="#svc-snow"><svg class="ico" width="18" height="18"><use href="#s-snow"/></svg>Snow</a>
-        <a href="#svc-mulch"><svg class="ico" width="18" height="18"><use href="#s-mulch"/></svg>Mulch</a>
-        <a href="#svc-land"><svg class="ico" width="18" height="18"><use href="#s-shovel"/></svg>Landscaping</a>
-        <a href="#svc-bag"><svg class="ico" width="18" height="18"><use href="#s-bag"/></svg>Bagging</a>
-        <a href="#svc-thatch"><svg class="ico" width="18" height="18"><use href="#s-thatch"/></svg>Dethatching</a>
-      </nav>
-
-      <ul class="grid">
-        <li class="svc" id="svc-lawn" data-on="3,4,5,6,7,8,9"><div class="svc__art"><svg><use href="#s-lawn"/></svg></div><div class="svc__body"><h3>Lawn Care <small>Apr&ndash;Oct</small></h3><p>Routine mowing, trimming and edging on a regular schedule.</p></div></li>
-        <li class="svc" id="svc-hedge" data-on="4,5,6,7,8"><div class="svc__art"><svg><use href="#s-hedge"/></svg></div><div class="svc__body"><h3>Hedge Trimming <small>May&ndash;Sep</small></h3><p>Hedges and shrubs shaped and cleaned up.</p></div></li>
-        <li class="svc" id="svc-rock" data-on="3,4,5,6,7,8,9"><div class="svc__art"><svg><use href="#s-rock"/></svg></div><div class="svc__body"><h3>Landscape Rock <small>Apr&ndash;Oct</small></h3><p>New rock beds put in, or tired ones refreshed.</p></div></li>
-        <li class="svc" id="svc-clean" data-on="2,3,4,9,10"><div class="svc__art"><svg><use href="#s-clean"/></svg></div><div class="svc__body"><h3>Spring &amp; Fall Clean-Ups <small>Spring &amp; fall</small></h3><p>Leaves, sticks and debris cleared to start and finish the season.</p></div></li>
-        <li class="svc" id="svc-snow" data-on="10,11,0,1,2"><div class="svc__art"><svg><use href="#s-snow"/></svg></div><div class="svc__body"><h3>Snow Removal <small>Nov&ndash;Mar</small></h3><p>Driveways and sidewalks cleared after snowfall.</p></div></li>
-        <li class="svc" id="svc-mulch" data-on="3,4,5,8,9"><div class="svc__art"><svg><use href="#s-mulch"/></svg></div><div class="svc__body"><h3>Mulching <small>Spring &amp; fall</small></h3><p>Fresh mulch for flower beds, trees and borders.</p></div></li>
-        <li class="svc" id="svc-land" data-on="3,4,5,6,7,8,9"><div class="svc__art"><svg><use href="#s-shovel"/></svg></div><div class="svc__body"><h3>Small Landscaping <small>Apr&ndash;Oct</small></h3><p>Beds, borders and small projects around the yard.</p></div></li>
-        <li class="svc" id="svc-bag" data-on="3,4,5,6,7,8,9,10"><div class="svc__art"><svg><use href="#s-bag"/></svg></div><div class="svc__body"><h3>Bagging <small>Apr&ndash;Nov</small></h3><p>Grass clippings and leaves bagged up, not left behind.</p></div></li>
-        <li class="svc" id="svc-thatch" data-on="3,4,8"><div class="svc__art"><svg><use href="#s-thatch"/></svg></div><div class="svc__body"><h3>Dethatching <small>Spring &amp; fall</small></h3><p>Built-up thatch pulled out so the lawn can breathe and fill in.</p></div></li>
+      <h2 id="services-h">Services</h2>
+      <p class="sec__intro">From the first spring clean-up to the last snowfall.</p>
+      <ul class="svc">
+        <li data-on="3,4,5,6,7,8,9"><div class="svc__top"><h3>Lawn Care</h3><span class="svc__when">Apr&ndash;Oct</span></div><p>Routine mowing, trimming and edging on a regular schedule.</p></li>
+        <li data-on="4,5,6,7,8"><div class="svc__top"><h3>Hedge Trimming</h3><span class="svc__when">May&ndash;Sep</span></div><p>Hedges and shrubs shaped and cleaned up.</p></li>
+        <li data-on="3,4,5,6,7,8,9"><div class="svc__top"><h3>Landscape Rock</h3><span class="svc__when">Apr&ndash;Oct</span></div><p>New rock beds put in, or tired ones refreshed.</p></li>
+        <li data-on="2,3,4,9,10"><div class="svc__top"><h3>Spring &amp; Fall Clean-Ups</h3><span class="svc__when">Spring &amp; fall</span></div><p>Leaves, sticks and debris cleared to start and finish the season.</p></li>
+        <li data-on="10,11,0,1,2"><div class="svc__top"><h3>Snow Removal</h3><span class="svc__when">Nov&ndash;Mar</span></div><p>Driveways and sidewalks cleared after snowfall.</p></li>
+        <li data-on="3,4,5,8,9"><div class="svc__top"><h3>Mulching</h3><span class="svc__when">Spring &amp; fall</span></div><p>Fresh mulch for flower beds, trees and borders.</p></li>
+        <li data-on="3,4,5,6,7,8,9"><div class="svc__top"><h3>Small Landscaping</h3><span class="svc__when">Apr&ndash;Oct</span></div><p>Beds, borders and small projects around the yard.</p></li>
+        <li data-on="3,4,5,6,7,8,9,10"><div class="svc__top"><h3>Bagging</h3><span class="svc__when">Apr&ndash;Nov</span></div><p>Grass clippings and leaves bagged up, not left behind.</p></li>
+        <li data-on="3,4,8"><div class="svc__top"><h3>Dethatching</h3><span class="svc__when">Spring &amp; fall</span></div><p>Built-up thatch pulled out so the lawn can breathe and fill in.</p></li>
       </ul>
     </div>
   </section>
 
-  <section class="sec" aria-labelledby="how-h">
-    <div class="wrap">
-      <div class="sec__head">
-        <h2 id="how-h">How it works</h2>
+  <section class="sec" id="about" aria-labelledby="about-h">
+    <div class="wrap prose">
+      <h2 id="about-h">About us</h2>
+      <div class="prose__body">
+        <p>At M&amp;S Lawncare &amp; Landscaping, we&rsquo;re proud to serve homeowners and businesses in Algona, Iowa, and the surrounding communities with dependable, professional lawn care and landscaping services.</p>
+        <p>We believe a well-maintained property makes a great first impression. Whether you need routine lawn mowing and maintenance, seasonal clean-ups, landscaping, or help improving the overall appearance of your outdoor space, our goal is to provide quality work and reliable service you can count on.</p>
+        <p>We take pride in paying attention to the details, treating every property with care, and delivering results that help your yard look its best throughout the seasons. From regular maintenance to larger outdoor projects, we work with our customers to understand their needs and provide practical solutions that fit their property.</p>
+        <p class="prose__close">M&amp;S Lawncare &amp; Landscaping &mdash; keeping Algona&rsquo;s lawns looking their best, one property at a time.</p>
       </div>
-      <ol class="steps">
-        <li><h3>Request a quote</h3><p>Fill out the short online form, or call or text (515) 341-6365.</p></li>
-        <li><h3>Get your free estimate</h3><p>We look at your property and what you need, then send you a price.</p></li>
-        <li><h3>We take care of it</h3><p>Your yard gets done right, on schedule, season after season.</p></li>
-      </ol>
     </div>
   </section>
 
-  <section class="sec" id="about" aria-label="About and mission">
-    <div class="wrap story">
-      <article class="about">
-        <h2>About M&amp;S Lawncare &amp; Landscaping</h2>
-        <div class="about__body">
-          <p>At M&amp;S Lawncare &amp; Landscaping, we&rsquo;re proud to serve homeowners and businesses in Algona, Iowa, and the surrounding communities with dependable, professional lawn care and landscaping services.</p>
-          <p>We believe a well-maintained property makes a great first impression. Whether you need routine lawn mowing and maintenance, seasonal clean-ups, landscaping, or help improving the overall appearance of your outdoor space, our goal is to provide quality work and reliable service you can count on.</p>
-          <p>We take pride in paying attention to the details, treating every property with care, and delivering results that help your yard look its best throughout the seasons. From regular maintenance to larger outdoor projects, we work with our customers to understand their needs and provide practical solutions that fit their property.</p>
-          <p class="about__close">M&amp;S Lawncare &amp; Landscaping &mdash; keeping Algona&rsquo;s lawns looking their best, one property at a time.</p>
-        </div>
-      </article>
-      <article class="mission" id="mission">
-        <h2>Our mission</h2>
-        <div class="mission__body">
+  <section class="sec" id="mission" aria-labelledby="mission-h">
+    <div class="wrap prose">
+      <h2 id="mission-h">Our mission</h2>
+      <div>
+        <div class="prose__body">
           <p>At M&amp;S Lawncare &amp; Landscaping, our mission is to provide dependable, high-quality lawn care and landscaping services that help homeowners take pride in their property. We believe in doing the job right, paying attention to the details, and treating every lawn like it&rsquo;s our own.</p>
           <p>As a locally owned business serving Algona and the surrounding area, we are committed to honest communication, reliable service, and results our customers can see. Whether it&rsquo;s routine mowing, trimming, edging, clean-ups, or landscaping, we strive to deliver professional service with a personal touch.</p>
         </div>
-        <p class="mission__tag">Your Lawn. <span>Our Pride.</span></p>
-      </article>
-    </div>
-  </section>
-
-  <section class="sec" id="card" aria-labelledby="card-h">
-    <div class="wrap">
-      <div class="cardsec">
-        <div>
-          <h2 id="card-h">Keep our card handy</h2>
-          <p>Save Matthew&rsquo;s info to your phone, or download the card to share with a neighbor.</p>
-          <div class="cardsec__acts">
-            <a class="btn btn--primary" href="mslawncare.vcf" download="MS-Lawncare.vcf">Save to contacts</a>
-            <a class="btn btn--ghost" href="business-card.png" download="MS-Lawncare-Business-Card.png">Download card</a>
-          </div>
-        </div>
-        <img src="business-card.webp" width="1400" height="800" loading="lazy" decoding="async"
-             alt="Business card: Matthew W. Steven, Founder &amp; CEO, M&amp;S Lawncare &amp; Landscaping. Phone (515) 341-6365, contact@mslawncare.org, mslawncare.org, 215 West College St, Algona, IA. Your Lawn. Our Pride.">
+        <p class="tagline">Your Lawn. <span>Our Pride.</span></p>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="contact" aria-labelledby="cta-h">
+  <section class="sec" id="contact" aria-labelledby="quote-h">
     <div class="wrap">
-      <div class="cta">
-        <h2 id="cta-h">Get a free quote today</h2>
+      <div class="quote">
+        <h2 id="quote-h">Get a free quote today</h2>
         <p>Tell us what your yard needs. We&rsquo;ll get back to you with an estimate.</p>
-        <div class="cta__acts">
+        <div class="quote__acts">
           <a class="btn btn--white btn--lg" href="https://www.yardbook.com/businesses/140400" target="_blank" rel="noopener">Get Quote Now</a>
-          <a class="btn btn--line btn--lg" href="tel:+15153416365">Call (515) 341-6365</a>
+          <a class="btn btn--outline btn--lg" href="tel:+15153416365">Call (515) 341-6365</a>
         </div>
       </div>
     </div>
@@ -523,290 +345,28 @@ a{color:inherit; text-underline-offset:.18em}
 
 <footer class="ftr">
   <div class="ftr__in">
-    <div>
-      <a class="brand" href="#top">
-        <img src="logo-sm.webp" width="180" height="153" alt="" loading="lazy">
-        <b>M&amp;S Lawncare<span>&amp; Landscaping</span></b>
-      </a>
-      <p class="ftr__tag">Your Lawn. Our Pride. Locally owned lawn care and landscaping in Algona, Iowa.</p>
-    </div>
-    <div>
-      <h4>Services</h4>
-      <ul><li>Lawn Care</li><li>Hedge Trimming</li><li>Landscape Rock</li><li>Spring &amp; Fall Clean-Ups</li><li>Snow Removal</li></ul>
-    </div>
-    <div>
-      <h4>&nbsp;</h4>
-      <ul><li>Mulching</li><li>Small Landscaping</li><li>Bagging</li><li>Dethatching</li></ul>
-    </div>
-    <div>
-      <h4>Contact</h4>
-      <address>
-        215 West College St<br>Algona, IA 50511<br>
-        <a href="tel:+15153416365">(515) 341-6365</a><br>
-        <a href="mailto:contact@mslawncare.org">contact@mslawncare.org</a>
-      </address>
-    </div>
-    <div class="ftr__base">
-      <span>&copy; <span id="yr">2026</span> M&amp;S Lawncare &amp; Landscaping</span>
-      <span>Site by <a href="https://twentysites.com" rel="noopener">Twenty Sites</a></span>
-    </div>
+    <p>&copy; <span id="yr">2026</span> M&amp;S Lawncare &amp; Landscaping &middot; 215 West College St, Algona, IA 50511 &middot; <a href="mailto:contact@mslawncare.org">contact@mslawncare.org</a></p>
+    <p>Site by <a href="https://twentysites.com" rel="noopener">Twenty Sites</a></p>
   </div>
 </footer>
 
 <nav class="dock" aria-label="Quick contact">
   <a class="btn btn--primary" href="https://www.yardbook.com/businesses/140400" target="_blank" rel="noopener">Get Quote Now</a>
-  <a class="btn btn--ghost" href="tel:+15153416365"><svg class="ico" width="17" height="17"><use href="#i-phone"/></svg>Call</a>
+  <a class="btn btn--secondary" href="tel:+15153416365"><svg class="ico" width="17" height="17"><use href="#i-phone"/></svg>Call</a>
 </nav>
 
 <script>
-/* page bits: header hairline, in-season data, category chips */
 (function(){
-  var M=['January','February','March','April','May','June','July','August','September','October','November','December'];
   var now=new Date().getMonth();
   document.getElementById('yr').textContent=new Date().getFullYear();
-
-  var hdr=document.querySelector('[data-hdr]');
-  var onScroll=function(){hdr.classList.toggle('is-scrolled', window.scrollY>8);};
-  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
-
-  var cards=[].slice.call(document.querySelectorAll('.svc[data-on]'));
-  var list=document.querySelector('[data-season]');
-  var items=[];
-  cards.forEach(function(c){
-    var on=c.getAttribute('data-on').split(',').map(Number);
+  // mark what's in season this month
+  document.querySelectorAll('.svc [data-on], .svc li[data-on]').forEach(function(li){
+    var on=li.getAttribute('data-on').split(',').map(Number);
     if(on.indexOf(now)===-1) return;
-    var body=c.querySelector('.svc__body');
-    var b=document.createElement('span'); b.className='badge'; b.innerHTML='<i></i>In season';
-    body.insertBefore(b, body.firstChild);
-    var name=c.querySelector('h3').firstChild.textContent.trim();
-    if(name.indexOf('Clean-Ups')>-1) name=(now>=8?'Fall':'Spring')+' Clean-Ups';
-    items.push('<li><span><svg width="18" height="18">'+c.querySelector('.svc__art svg').innerHTML+'</svg></span>'+name+'</li>');
+    var when=li.querySelector('.svc__when');
+    var b=document.createElement('b'); b.textContent='In season';
+    when.insertBefore(b, when.firstChild);
   });
-  if(items.length){ list.innerHTML=items.join(''); }
-  document.querySelector('[data-month]').textContent=M[now];
-
-  document.querySelectorAll('.cats a').forEach(function(a){
-    a.addEventListener('click', function(){
-      var t=document.querySelector(a.getAttribute('href'));
-      if(!t) return;
-      t.classList.add('is-hit');
-      setTimeout(function(){t.classList.remove('is-hit');}, 1400);
-    });
-  });
-})();
-
-/* the night lawn: grass that sways, leans away from the pointer, and gets mowed as you scroll */
-(function(){
-  var cv=document.querySelector('[data-lawn]');
-  var hero=document.querySelector('[data-hero]');
-  if(!cv || !cv.getContext) return;
-  var ctx=cv.getContext('2d', {alpha:false});
-  if(!ctx) return;
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  var W=0, H=0, dpr=1, horizon=0, sky=null, blades=[], bands=[], STRIPE=88;
-  var ptr={x:-9999, y:-9999};
-  var mow=0, start=performance.now(), raf=0, visible=true, lastW=0, lastH=0;
-  var chips=[];
-
-  function rnd(a,b){return a+Math.random()*(b-a);}
-  function depthScale(d){return 0.32+0.68*d;}
-
-  function build(){
-    var r=hero.getBoundingClientRect();
-    W=Math.max(1, Math.round(r.width)); H=Math.max(1, Math.round(r.height));
-    var small=W<700;
-    dpr=Math.min(window.devicePixelRatio||1, small?1.5:1.75);
-    cv.width=Math.round(W*dpr); cv.height=Math.round(H*dpr);
-    // the field starts just under the headline block, so the lawn is always on the first screen
-    var tr=hero.querySelector('.trust');
-    var cb=tr? tr.getBoundingClientRect().bottom-r.top : H*0.56;
-    horizon=Math.min(H*0.8, Math.max(H*0.4, cb+(small?22:30)));
-
-    // sky + ground, painted once
-    sky=document.createElement('canvas'); sky.width=cv.width; sky.height=cv.height;
-    var s=sky.getContext('2d'); s.setTransform(dpr,0,0,dpr,0,0);
-    var g=s.createLinearGradient(0,0,0,horizon);
-    g.addColorStop(0,'#030507'); g.addColorStop(.7,'#06100b'); g.addColorStop(1,'#0a1d11');
-    s.fillStyle=g; s.fillRect(0,0,W,horizon+1);
-    var mg=s.createRadialGradient(W*.82,H*.14,0,W*.82,H*.14,Math.max(W,H)*.45);
-    mg.addColorStop(0,'rgba(170,255,205,.12)'); mg.addColorStop(1,'rgba(170,255,205,0)');
-    s.fillStyle=mg; s.fillRect(0,0,W,horizon);
-    var stars=Math.round(W*horizon/5200);
-    for(var i=0;i<stars;i++){
-      var sy=Math.pow(Math.random(),1.4)*horizon*.92;
-      s.fillStyle='rgba(230,255,240,'+rnd(.12,.55).toFixed(2)+')';
-      s.beginPath(); s.arc(rnd(0,W), sy, rnd(.4,1.15), 0, 6.283); s.fill();
-    }
-    var gg=s.createLinearGradient(0,horizon,0,H);
-    gg.addColorStop(0,'#071509'); gg.addColorStop(1,'#0b2a13');
-    s.fillStyle=gg; s.fillRect(0,horizon,W,H-horizon);
-    // a soft glow along the horizon line
-    var hg=s.createLinearGradient(0,horizon-40,0,horizon+30);
-    hg.addColorStop(0,'rgba(61,220,132,0)'); hg.addColorStop(.6,'rgba(61,220,132,.07)'); hg.addColorStop(1,'rgba(61,220,132,0)');
-    s.fillStyle=hg; s.fillRect(0,horizon-40,W,70);
-
-    // blades, back to front
-    var area=W*(H-horizon);
-    var n=Math.min(small?2400:3400, Math.round(area/(small?42:58)));
-    blades=[];
-    for(var k=0;k<n;k++){
-      var y=horizon+(H-horizon)*Math.pow(Math.random(),1.35);
-      var d=(y-horizon)/(H-horizon);
-      var x=rnd(-30,W+30);
-      var u=(x-W/2)/depthScale(d)+W/2;
-      blades.push({
-        x:x, y:y, d:d,
-        h:(7+d*d*(small?78:104))*rnd(.7,1.25),
-        w:.9+d*(small?3.6:4.6),
-        ph:rnd(0,6.283),
-        lean:0,
-        stripe:((Math.floor(u/STRIPE)%2)+2)%2,
-        shade:Math.floor(rnd(0,3))
-      });
-    }
-    blades.sort(function(a,b){return a.y-b.y;});
-    // 10 depth bands so fills can be batched while staying back-to-front
-    bands=[];
-    for(var bI=0;bI<10;bI++) bands.push([]);
-    blades.forEach(function(b){ bands[Math.min(9, Math.floor(b.d*10))].push(b); });
-    lastW=W; lastH=H;
-  }
-
-  function color(d, shade, cut, stripe){
-    var l=8+d*20+shade*3.2;
-    var h=128+shade*5;
-    var sat=42+shade*6;
-    if(cut){ l+= stripe? 7 : 1; sat+=6; }
-    return 'hsl('+h+','+sat+'%,'+l.toFixed(1)+'%)';
-  }
-
-  function stripes(mx){
-    if(mx<=0) return;
-    ctx.save();
-    ctx.beginPath(); ctx.rect(0,horizon,mx,H-horizon); ctx.clip();
-    var span=W/depthScale(0)+STRIPE*4;
-    for(var k=Math.floor(-span/STRIPE); k<span/STRIPE; k++){
-      if(((k%2)+2)%2===0) continue;
-      var b0=k*STRIPE, b1=b0+STRIPE;
-      var xa0=W/2+(b0-W/2)*depthScale(0), xa1=W/2+(b1-W/2)*depthScale(0);
-      var xb0=W/2+(b0-W/2), xb1=W/2+(b1-W/2);
-      ctx.beginPath(); ctx.moveTo(xa0,horizon); ctx.lineTo(xa1,horizon); ctx.lineTo(xb1,H); ctx.lineTo(xb0,H); ctx.closePath();
-      ctx.fillStyle='rgba(120,230,150,.055)'; ctx.fill();
-    }
-    ctx.restore();
-  }
-
-  function frame(now){
-    var t=(now-start)/1000;
-    // mow target: an intro pass, then scroll takes it the rest of the way
-    var intro=reduce?0.55:Math.min(1,t/2.4); intro=1-Math.pow(1-intro,3);
-    var sp=Math.min(1, Math.max(0, window.scrollY/(H*0.75)));
-    var target=reduce?0.55:Math.max(intro*0.38, 0.38+sp*0.74);
-    mow+= (target-mow)*(reduce?1:0.07);
-    var mx=-0.04*W + mow*W*1.08;
-
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-    ctx.drawImage(sky,0,0,W,H);
-    stripes(mx);
-
-    var gust=0.65+0.35*Math.sin(t*0.55)+0.15*Math.sin(t*1.7);
-    for(var bI=0;bI<bands.length;bI++){
-      var band=bands[bI];
-      var paths={};
-      for(var i=0;i<band.length;i++){
-        var b=band[i];
-        var cut=b.x<mx;
-        var hgt=cut? b.h*0.26 : b.h;
-        var sway=reduce?0.12:(Math.sin(t*1.5+b.x*0.011+b.ph)*0.32+Math.sin(t*0.8+b.x*0.004)*0.22)*gust;
-        // lean away from the pointer, eased so it has momentum
-        var target2=0;
-        var dx=b.x-ptr.x, dy=(b.y-hgt*.5)-ptr.y;
-        var R=60+b.d*150;
-        if(dx>-R && dx<R && dy>-R && dy<R){
-          var dist=Math.sqrt(dx*dx+dy*dy);
-          if(dist<R){ target2=(dx>=0?1:-1)*(1-dist/R)*1.5; }
-        }
-        b.lean+= (target2-b.lean)*0.14;
-        var bend=(sway*(cut?0.25:1)+b.lean)*hgt*0.5;
-        var tipX=b.x+bend, tipY=b.y-hgt*(1-Math.min(.35, Math.abs(bend)/hgt*.35));
-        var key=(cut?(b.stripe?'s':'c'):'u')+b.shade;
-        var p=paths[key]||(paths[key]=new Path2D());
-        p.moveTo(b.x-b.w/2, b.y);
-        p.quadraticCurveTo(b.x-b.w*.15+bend*.3, b.y-hgt*.55, tipX, tipY);
-        p.quadraticCurveTo(b.x+b.w*.15+bend*.3, b.y-hgt*.55, b.x+b.w/2, b.y);
-        p.closePath();
-      }
-      var d=(bI+.5)/10;
-      for(var key2 in paths){
-        var c=key2.charAt(0), sh=+key2.charAt(1);
-        ctx.fillStyle=color(d, sh, c!=='u', c==='s');
-        ctx.fill(paths[key2]);
-      }
-    }
-
-    // the mow line and a few flying clippings
-    if(mx>0 && mx<W){
-      var lg=ctx.createLinearGradient(mx-36,0,mx+6,0);
-      lg.addColorStop(0,'rgba(61,220,132,0)'); lg.addColorStop(1,'rgba(159,243,196,.16)');
-      ctx.fillStyle=lg; ctx.fillRect(mx-36,horizon,42,H-horizon);
-      ctx.fillStyle='rgba(190,255,215,.5)'; ctx.fillRect(mx,horizon,1.5,H-horizon);
-      if(!reduce && Math.abs(target-mow)>0.002 && chips.length<70){
-        for(var c2=0;c2<3;c2++){
-          var cy=rnd(horizon+(H-horizon)*.15,H);
-          var cd=(cy-horizon)/(H-horizon);
-          chips.push({x:mx, y:cy, vx:rnd(.4,2.2)*(.4+cd), vy:-rnd(.6,2.4)*(.4+cd), life:1, s:.6+cd*1.6});
-        }
-      }
-    }
-    for(var j=chips.length-1;j>=0;j--){
-      var ch=chips[j];
-      ch.x+=ch.vx; ch.y+=ch.vy; ch.vy+=0.09; ch.life-=0.025;
-      if(ch.life<=0){ chips.splice(j,1); continue; }
-      ctx.fillStyle='rgba(140,235,170,'+(ch.life*.8).toFixed(2)+')';
-      ctx.fillRect(ch.x, ch.y, ch.s*1.8, ch.s);
-    }
-  }
-
-  function loop(now){
-    raf=0;
-    if(!visible) return;
-    frame(now);
-    raf=requestAnimationFrame(loop);
-  }
-  function kick(){ if(!raf && visible && !reduce) raf=requestAnimationFrame(loop); }
-
-  build();
-  frame(performance.now());
-
-  if(!reduce){
-    hero.addEventListener('pointermove', function(e){
-      var r=hero.getBoundingClientRect();
-      ptr.x=e.clientX-r.left; ptr.y=e.clientY-r.top;
-    }, {passive:true});
-    hero.addEventListener('pointerleave', function(){ ptr.x=-9999; ptr.y=-9999; });
-    if('IntersectionObserver' in window){
-      new IntersectionObserver(function(es){
-        visible=es[0].isIntersecting && !document.hidden;
-        if(visible) kick();
-      }).observe(hero);
-    }
-    document.addEventListener('visibilitychange', function(){ visible=!document.hidden; if(visible) kick(); });
-    kick();
-  }
-
-  var rt=0;
-  window.addEventListener('resize', function(){
-    clearTimeout(rt);
-    rt=setTimeout(function(){
-      var r=hero.getBoundingClientRect();
-      // ignore the small height jumps from mobile browser bars
-      if(Math.abs(r.width-lastW)>2 || Math.abs(r.height-lastH)>90){ build(); frame(performance.now()); }
-    }, 150);
-  });
-  if(document.fonts && document.fonts.ready){
-    document.fonts.ready.then(function(){ build(); frame(performance.now()); });
-  }
 })();
 </script>
 </body>
